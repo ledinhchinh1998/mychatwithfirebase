@@ -11,6 +11,7 @@ import Foundation
 
 @IBDesignable
 extension UIView {
+    //MARK: Add cornerRadius
     @IBInspectable var cornerRadius: CGFloat {
         set {
             layer.cornerRadius = newValue
@@ -21,7 +22,7 @@ extension UIView {
             return layer.cornerRadius
         }
     }
-    
+    //MARK: Add border
     @IBInspectable var borderColor: UIColor? {
         get {
             if let color = layer.borderColor {
@@ -47,7 +48,25 @@ extension UIView {
             return layer.borderWidth
         }
     }
+    //MARK: Add shadow
+    func addShadowCustom(_ shadowOffset: CGSize?,_ shadowRadius: CGFloat,_ shadowOpacity: Float) {
+        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = shadowRadius
+        self.layer.shadowOpacity = shadowOpacity
+    }
     
+    func addShadowDistanceBottom(_ shadowRadius: CGFloat,_ shadowOpacity: Float,_ distance: CGFloat,_ shadowSize: CGFloat) {
+        let height = self.bounds.height
+        let width = self.bounds.width
+        let x = -shadowSize
+        let y = height - (shadowSize * 0.4) + distance
+        let contactRect = CGRect(x: x, y: y, width: width + (shadowSize * 2), height: shadowSize)
+        self.layer.shadowPath = UIBezierPath(ovalIn: contactRect).cgPath
+        self.layer.shadowRadius = shadowRadius
+        self.layer.shadowOpacity = shadowOpacity
+        
+    }
     
 }
 
