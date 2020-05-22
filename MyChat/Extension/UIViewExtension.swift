@@ -67,6 +67,12 @@ extension UIView {
         self.layer.shadowOpacity = shadowOpacity
         
     }
-    
+    //MARK: Gradient color
+    func gradientColor(colors: [CGColor]) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.bounds
+        gradientLayer.colors = colors
+        self.layer.insertSublayer(gradientLayer, at: 0)
+    }
 }
 

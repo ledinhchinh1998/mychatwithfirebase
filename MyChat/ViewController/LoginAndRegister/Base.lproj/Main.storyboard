@@ -136,6 +136,9 @@
                                                 <real key="value" value="6"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="NcC-Lq-skY" kind="show" id="W3U-Vi-SMn"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mcG-sB-yWc">
                                         <rect key="frame" x="37" y="459.5" width="150" height="30"/>
@@ -224,20 +227,40 @@
             </objects>
             <point key="canvasLocation" x="-863" y="-19"/>
         </scene>
-        <!--View Controller-->
+        <!--Register-->
         <scene sceneID="mXc-PF-f8Q">
             <objects>
-                <viewController id="0FR-Z6-On7" sceneMemberID="viewController">
+                <viewController id="0FR-Z6-On7" customClass="RegisterViewController" customModule="MyChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YOv-he-POj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="OZ3-eg-Qeb"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Register" id="kEB-do-lGn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5m-pk-rkw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="608" y="-141"/>
+            <point key="canvasLocation" x="789" y="-19"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6Od-D0-ZLy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NcC-Lq-skY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="RKN-25-RUK"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FYL-Ll-igc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0FR-Z6-On7" kind="relationship" relationship="rootViewController" id="K37-55-mwf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YJk-7F-bxd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-49" y="-19"/>
         </scene>
     </scenes>
     <resources>

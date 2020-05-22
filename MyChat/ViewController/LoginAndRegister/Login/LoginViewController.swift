@@ -17,10 +17,6 @@ class LoginViewController: UIViewController {
     //MARK: Property
     override func viewDidLoad() {
         super.viewDidLoad()
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [UIColor(red: 255/255, green: 175/255, blue: 189/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 195/255, blue: 160/255, alpha: 1).cgColor]
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
         configLayout()
     }
     
@@ -30,6 +26,13 @@ class LoginViewController: UIViewController {
         btnTwitter.addShadowDistanceBottom(5, 0.5, 10, 5)
         btnGoogle.addShadowDistanceBottom(5, 0.5, 10, 5)
         btnApple.addShadowDistanceBottom(5, 0.5, 10, 5)
+        
+        let colors = [UIColor(red: 255/255, green: 175/255, blue: 189/255, alpha: 1).cgColor, UIColor(red: 255/255, green: 195/255, blue: 160/255, alpha: 1).cgColor]
+        self.view.gradientColor(colors: colors)
+    }
+    
+    private func setBgGradient() {
+        
     }
 
 }
