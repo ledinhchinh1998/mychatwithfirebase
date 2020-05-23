@@ -11,6 +11,9 @@ import Foundation
 
 @IBDesignable
 extension UIView {
+    enum ViewSide {
+        case Left, Right, Top, Bottom
+    }
     //MARK: Add cornerRadius
     @IBInspectable var cornerRadius: CGFloat {
         set {
@@ -48,9 +51,29 @@ extension UIView {
             return layer.borderWidth
         }
     }
+    
+    func addBorderToSide(toSide side: ViewSide, withColor color: CGColor, andThickness thickness: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color
+        switch side {
+            case .Left:
+                border.frame = CGRect(x: frame.minX, y: frame.minY, width: thickness, height: frame.height)
+                break
+            case .Right:
+                border.frame = CGRect(x: frame.maxX, y: frame.minY, width: thickness, height: frame.height)
+                break
+            case .Top:
+                border.frame = CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: thickness)
+                break
+            case .Bottom:
+                border.frame = CGRect(x: 0, y: self.frame.size.height, width: frame.size.width, height: thickness)
+                break
+        }
+        
+        layer.addSublayer(border)
+    }
     //MARK: Add shadow
     func addShadowCustom(_ shadowOffset: CGSize?,_ shadowRadius: CGFloat,_ shadowOpacity: Float) {
-        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
         self.layer.shadowOffset = .zero
         self.layer.shadowRadius = shadowRadius
         self.layer.shadowOpacity = shadowOpacity
