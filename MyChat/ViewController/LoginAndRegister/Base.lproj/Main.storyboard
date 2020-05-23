@@ -266,6 +266,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="HjG-3g-IUP"/>
+                                                    <constraint firstAttribute="height" constant="75" id="IL2-7s-2He"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTZ-5u-Sqy">
@@ -482,7 +483,6 @@
                         <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lmP-Td-n8d" firstAttribute="top" secondItem="OZ3-eg-Qeb" secondAttribute="top" id="42F-i5-zsL"/>
-                            <constraint firstItem="Z6l-Ex-Dqu" firstAttribute="height" secondItem="OZ3-eg-Qeb" secondAttribute="height" multiplier="1/10" id="F65-NB-Abr"/>
                             <constraint firstItem="OZ3-eg-Qeb" firstAttribute="trailing" secondItem="lmP-Td-n8d" secondAttribute="trailing" id="Ijf-hu-1VK"/>
                             <constraint firstItem="lmP-Td-n8d" firstAttribute="leading" secondItem="OZ3-eg-Qeb" secondAttribute="leading" id="f41-ib-3jJ"/>
                             <constraint firstItem="a4Q-kg-GD9" firstAttribute="width" secondItem="OZ3-eg-Qeb" secondAttribute="width" multiplier="1.5/10" id="vKy-TD-YA7"/>
