@@ -21,8 +21,10 @@
 		AB048FE42477BE4800FE0832 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB048FE32477BE4800FE0832 /* LoginViewController.swift */; };
 		AB048FE72477BF4100FE0832 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB048FE62477BF4100FE0832 /* RegisterViewController.swift */; };
 		AB048FEA2477BF6F00FE0832 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB048FE92477BF6F00FE0832 /* NSObjectExtension.swift */; };
-		AB048FED2477BFD000FE0832 /* ButtonCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB048FEC2477BFD000FE0832 /* ButtonCustomView.swift */; };
 		AB048FEF2477C2F200FE0832 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB048FEE2477C2F200FE0832 /* UIViewExtension.swift */; };
+		AB388241247B93D1007823CE /* RegistrationResultsPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB388240247B93D1007823CE /* RegistrationResultsPopup.xib */; };
+		AB388243247B93ED007823CE /* RegistrationResultsPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB388242247B93ED007823CE /* RegistrationResultsPopup.swift */; };
+		AB38824A247BC415007823CE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB388249247BC415007823CE /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +67,10 @@
 		AB048FE32477BE4800FE0832 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AB048FE62477BF4100FE0832 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		AB048FE92477BF6F00FE0832 /* NSObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
-		AB048FEC2477BFD000FE0832 /* ButtonCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonCustomView.swift; path = MyChat/Extension/ButtonCustomView.swift; sourceTree = SOURCE_ROOT; };
 		AB048FEE2477C2F200FE0832 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		AB388240247B93D1007823CE /* RegistrationResultsPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationResultsPopup.xib; sourceTree = "<group>"; };
+		AB388242247B93ED007823CE /* RegistrationResultsPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationResultsPopup.swift; sourceTree = "<group>"; };
+		AB388249247BC415007823CE /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		E02DBCE41B693544CBB66433 /* Pods-MyChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyChatTests.debug.xcconfig"; path = "Target Support Files/Pods-MyChatTests/Pods-MyChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E47F601A0EBC0C6635C01F36 /* Pods-MyChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyChat.release.xcconfig"; path = "Target Support Files/Pods-MyChat/Pods-MyChat.release.xcconfig"; sourceTree = "<group>"; };
 		E6E4E07D86F6D5056EE0DDF5 /* Pods_MyChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,9 +168,9 @@
 		AB048FAC2477B6A200FE0832 /* MyChat */ = {
 			isa = PBXGroup;
 			children = (
+				AB388248247BC3E7007823CE /* Model */,
 				AB048FE12477BE0600FE0832 /* ViewController */,
 				34DE581A24782CC900B5BB2C /* Application */,
-				AB048FEB2477BFC400FE0832 /* CustomView */,
 				AB048FE82477BF5F00FE0832 /* Extension */,
 				34DE581B24782CDF00B5BB2C /* Resource */,
 				AB048FBB2477B6A500FE0832 /* Info.plist */,
@@ -211,6 +215,7 @@
 		AB048FE52477BF1900FE0832 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				AB38823F247B933B007823CE /* Popup */,
 				AB048FE62477BF4100FE0832 /* RegisterViewController.swift */,
 			);
 			path = Register;
@@ -226,12 +231,21 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		AB048FEB2477BFC400FE0832 /* CustomView */ = {
+		AB38823F247B933B007823CE /* Popup */ = {
 			isa = PBXGroup;
 			children = (
-				AB048FEC2477BFD000FE0832 /* ButtonCustomView.swift */,
+				AB388240247B93D1007823CE /* RegistrationResultsPopup.xib */,
+				AB388242247B93ED007823CE /* RegistrationResultsPopup.swift */,
 			);
-			path = CustomView;
+			path = Popup;
+			sourceTree = "<group>";
+		};
+		AB388248247BC3E7007823CE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AB388249247BC415007823CE /* UserModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E6160480E677A55854CDB254 /* Pods */ = {
@@ -358,6 +372,7 @@
 			files = (
 				AB048FBA2477B6A500FE0832 /* LaunchScreen.storyboard in Resources */,
 				AB048FB72477B6A500FE0832 /* Assets.xcassets in Resources */,
+				AB388241247B93D1007823CE /* RegistrationResultsPopup.xib in Resources */,
 				AB048FB52477B6A200FE0832 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,10 +505,11 @@
 				AB048FE72477BF4100FE0832 /* RegisterViewController.swift in Sources */,
 				AB048FAE2477B6A200FE0832 /* AppDelegate.swift in Sources */,
 				34DE581E2478301800B5BB2C /* UIColorExtension.swift in Sources */,
-				AB048FED2477BFD000FE0832 /* ButtonCustomView.swift in Sources */,
 				AB048FEA2477BF6F00FE0832 /* NSObjectExtension.swift in Sources */,
 				AB048FE42477BE4800FE0832 /* LoginViewController.swift in Sources */,
 				AB048FB02477B6A200FE0832 /* SceneDelegate.swift in Sources */,
+				AB38824A247BC415007823CE /* UserModel.swift in Sources */,
+				AB388243247B93ED007823CE /* RegistrationResultsPopup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
