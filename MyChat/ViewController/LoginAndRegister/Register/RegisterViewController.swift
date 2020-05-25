@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RegisterViewControllerProtocol {
-    func passData()
+    func passData(userModel: UserModel)
 }
 
 class RegisterViewController: UIViewController {
@@ -24,11 +24,17 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var confirmPasswordTxt: UITextField!
     @IBOutlet weak var registerBtn: UIButton!
     @IBOutlet weak var validateFirstNameLbl: UILabel!
+    @IBOutlet weak var validateLastNameLbl: UILabel!
+    @IBOutlet weak var validateUsernameLbl: UILabel!
+    @IBOutlet weak var validatePasswordLbl: UILabel!
+    @IBOutlet weak var validateConfirmPasswordLbl: UILabel!
+    @IBOutlet weak var validateEmailLbl: UILabel!
     //MARK: Property
     typealias Popup = RegistrationResultsPopup
     typealias Delegate = RegisterViewControllerProtocol
     private var registrationResultPopup = Popup(nibName: Popup.className, bundle: nil)
     private var userModel: UserModel?
+    lazy var textFields = [self.firstNameTxt, self.lastNameTxt, self.passwordTxt, self.emailTxt, self.confirmPasswordTxt]
     var delegate: Delegate?
     //MARK: Recycle ViewController
     override func viewDidLoad() {
@@ -36,7 +42,6 @@ class RegisterViewController: UIViewController {
         configNavigation()
         configView()
     }
-    
     //MARK: Config
     private func configNavigation() {
         let navigationBar = navigationController?.navigationBar
@@ -56,19 +61,22 @@ class RegisterViewController: UIViewController {
         userNameTxt.addShadowCustom(.zero, 5, 0.3)
         registerBtn.addShadowCustom(.zero, 5, 0.3)
         registerLbl.addShadowDistanceBottom(5, 0.6, 0, 3)
+        for textField in textFields {
+            textField?.delegate = self
+        }
     }
     //MARK: Action
     @IBAction func onclickRegister(_ sender: Any) {
-        if validation(testStr: firstNameTxt.text ?? "") {
-            print("Oke")
-        } else {
-            validateFirstNameLbl.isHidden = false
-        }
+        userModel = UserModel(firstNameTxt.text ?? "", lastNameTxt.text ?? "", userNameTxt.text ?? "", passwordTxt.text ?? "", emailTxt.text ?? "")
+        showPopup()
     }
     //MARK: Function
     private func showPopup() {
         registrationResultPopup.view.frame = self.view.bounds
         registrationResultPopup.handle = { [weak self] in
+            if let userModel = self?.userModel {
+                self?.delegate?.passData(userModel: userModel)
+            }
             
             self?.dismiss(animated: true, completion: nil)
         }
@@ -85,7 +93,7 @@ class RegisterViewController: UIViewController {
             }, completion: nil)
         }
     }
-    
+    // Validate form
     private func validation(testStr: String) -> Bool {
         guard testStr.count > 0 && testStr.count < 18 else {
             return false
@@ -93,6 +101,18 @@ class RegisterViewController: UIViewController {
         
         let predicateTest = NSPredicate(format: "SELF MATCHES %@", "^(([^ ]?)(^[a-zA-Z].*[a-zA-Z]$)([^ ]?))$")
         return predicateTest.evaluate(with: testStr)
+    }
+    
+    private func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+}
+//MARK: TextField
+extension RegisterViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
     }
 }
 

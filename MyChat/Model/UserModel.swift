@@ -15,7 +15,7 @@ struct UserModel {
     var password: String?
     var email: String?
     
-    init(firstName: String?, lastName: String?, userName: String?, password: String?, email: String) {
+    init(_ firstName: String?,_ lastName: String?,_ userName: String?,_ password: String?,_ email: String) {
         self.firstName = firstName
         self.lastName = lastName
         self.userName = userName

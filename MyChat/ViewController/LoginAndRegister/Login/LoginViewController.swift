@@ -36,9 +36,11 @@ class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let registerVC = segue.destination as? RegisterViewController {
+        if let navi = segue.destination as? UINavigationController,
+            let registerVC = navi.viewControllers.first as? RegisterViewController {
             registerVC.delegate = self
         }
+        
         userNameTxt.text = nil
         passwordTxt.text = nil
     }
@@ -79,7 +81,7 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: RegisterViewControllerProtocol {
-    func passData() {
-        
+    func passData(userModel: UserModel) {
+        userNameTxt.text = userModel.userName
     }
 }
