@@ -2,12 +2,12 @@
 # platform :ios, '9.0'
 
 target 'MyChat' do
-pod 'IQKeyboardManagerSwift'
-pod 'SVProgressHUD'
-pod 'Firebase/Analytics'
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
 
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_modular_headers!
+  pod 'IQKeyboardManagerSwift'
+  pod 'SVProgressHUD'
+  pod 'Firebase/Analytics'
   # Pods for MyChat
 
   target 'MyChatTests' do

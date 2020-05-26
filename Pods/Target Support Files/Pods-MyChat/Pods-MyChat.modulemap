@@ -1,4 +1,4 @@
-framework module Pods_MyChat {
+module Pods_MyChat {
   umbrella header "Pods-MyChat-umbrella.h"
 
   export *
