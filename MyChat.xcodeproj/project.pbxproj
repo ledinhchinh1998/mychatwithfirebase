@@ -26,6 +26,12 @@
 		AB388241247B93D1007823CE /* RegistrationResultsPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB388240247B93D1007823CE /* RegistrationResultsPopup.xib */; };
 		AB388243247B93ED007823CE /* RegistrationResultsPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB388242247B93ED007823CE /* RegistrationResultsPopup.swift */; };
 		AB38824A247BC415007823CE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB388249247BC415007823CE /* UserModel.swift */; };
+		AB47D8DC247CD40600751CB1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB47D8DB247CD40600751CB1 /* GoogleService-Info.plist */; };
+		AB47D8DE247CD79F00751CB1 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB47D8DD247CD79F00751CB1 /* Intro.storyboard */; };
+		AB47D8E0247CD7B800751CB1 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47D8DF247CD7B800751CB1 /* IntroViewController.swift */; };
+		AB47D8E5247CF0EB00751CB1 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47D8E4247CF0EB00751CB1 /* SplashViewController.swift */; };
+		AB47D8E8247CF5F900751CB1 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47D8E7247CF5F900751CB1 /* UIViewControllerExtension.swift */; };
+		AB47D8EA247CFBC300751CB1 /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47D8E9247CFBC300751CB1 /* RootPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +79,12 @@
 		AB388240247B93D1007823CE /* RegistrationResultsPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationResultsPopup.xib; sourceTree = "<group>"; };
 		AB388242247B93ED007823CE /* RegistrationResultsPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationResultsPopup.swift; sourceTree = "<group>"; };
 		AB388249247BC415007823CE /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		AB47D8DB247CD40600751CB1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AB47D8DD247CD79F00751CB1 /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		AB47D8DF247CD7B800751CB1 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		AB47D8E4247CF0EB00751CB1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		AB47D8E7247CF5F900751CB1 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		AB47D8E9247CFBC300751CB1 /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
 		E02DBCE41B693544CBB66433 /* Pods-MyChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyChatTests.debug.xcconfig"; path = "Target Support Files/Pods-MyChatTests/Pods-MyChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E47F601A0EBC0C6635C01F36 /* Pods-MyChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyChat.release.xcconfig"; path = "Target Support Files/Pods-MyChat/Pods-MyChat.release.xcconfig"; sourceTree = "<group>"; };
 		E6E4E07D86F6D5056EE0DDF5 /* Pods_MyChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +187,7 @@
 				34DE581A24782CC900B5BB2C /* Application */,
 				AB048FE82477BF5F00FE0832 /* Extension */,
 				34DE581B24782CDF00B5BB2C /* Resource */,
+				AB47D8DB247CD40600751CB1 /* GoogleService-Info.plist */,
 				AB048FBB2477B6A500FE0832 /* Info.plist */,
 			);
 			path = MyChat;
@@ -201,6 +214,7 @@
 		AB048FE12477BE0600FE0832 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AB47D8E2247CF0BD00751CB1 /* Intro */,
 				34DE581C24782D2700B5BB2C /* LoginAndRegister */,
 			);
 			path = ViewController;
@@ -230,6 +244,7 @@
 				AB048FE92477BF6F00FE0832 /* NSObjectExtension.swift */,
 				34DE581D2478301800B5BB2C /* UIColorExtension.swift */,
 				34F27147247C009100B6FF62 /* UITextFieldExtension.swift */,
+				AB47D8E7247CF5F900751CB1 /* UIViewControllerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -249,6 +264,33 @@
 				AB388249247BC415007823CE /* UserModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AB47D8E2247CF0BD00751CB1 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				AB47D8DD247CD79F00751CB1 /* Intro.storyboard */,
+				AB47D8E6247CF0FB00751CB1 /* Intro */,
+				AB47D8E3247CF0D500751CB1 /* Splash */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		AB47D8E3247CF0D500751CB1 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				AB47D8E4247CF0EB00751CB1 /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		AB47D8E6247CF0FB00751CB1 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				AB47D8DF247CD7B800751CB1 /* IntroViewController.swift */,
+				AB47D8E9247CFBC300751CB1 /* RootPageViewController.swift */,
+			);
+			path = Intro;
 			sourceTree = "<group>";
 		};
 		E6160480E677A55854CDB254 /* Pods */ = {
@@ -375,8 +417,10 @@
 			files = (
 				AB048FBA2477B6A500FE0832 /* LaunchScreen.storyboard in Resources */,
 				AB048FB72477B6A500FE0832 /* Assets.xcassets in Resources */,
+				AB47D8DC247CD40600751CB1 /* GoogleService-Info.plist in Resources */,
 				AB388241247B93D1007823CE /* RegistrationResultsPopup.xib in Resources */,
 				AB048FB52477B6A200FE0832 /* Main.storyboard in Resources */,
+				AB47D8DE247CD79F00751CB1 /* Intro.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,11 +551,15 @@
 				AB048FEF2477C2F200FE0832 /* UIViewExtension.swift in Sources */,
 				AB048FE72477BF4100FE0832 /* RegisterViewController.swift in Sources */,
 				AB048FAE2477B6A200FE0832 /* AppDelegate.swift in Sources */,
+				AB47D8E5247CF0EB00751CB1 /* SplashViewController.swift in Sources */,
 				34DE581E2478301800B5BB2C /* UIColorExtension.swift in Sources */,
 				AB048FEA2477BF6F00FE0832 /* NSObjectExtension.swift in Sources */,
 				34F27148247C009100B6FF62 /* UITextFieldExtension.swift in Sources */,
 				AB048FE42477BE4800FE0832 /* LoginViewController.swift in Sources */,
 				AB048FB02477B6A200FE0832 /* SceneDelegate.swift in Sources */,
+				AB47D8E8247CF5F900751CB1 /* UIViewControllerExtension.swift in Sources */,
+				AB47D8E0247CD7B800751CB1 /* IntroViewController.swift in Sources */,
+				AB47D8EA247CFBC300751CB1 /* RootPageViewController.swift in Sources */,
 				AB38824A247BC415007823CE /* UserModel.swift in Sources */,
 				AB388243247B93ED007823CE /* RegistrationResultsPopup.swift in Sources */,
 			);

@@ -9,17 +9,21 @@
 import UIKit
 typealias VoidClosure = (() -> Void)
 class RegistrationResultsPopup: UIViewController {
+    
     //MARK: Outlet
     @IBOutlet weak var checkImg: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var messageLbl: UILabel!
     @IBOutlet weak var done: UIButton!
+    
     //MARK: Property
     var handle: VoidClosure?
+    
     //MARK: Recycle Viewcontroller
     override func viewDidLoad() {
         view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
     }
+    
     //MARK: Action
     @IBAction func done(_ sender: Any) {
         handle?()
