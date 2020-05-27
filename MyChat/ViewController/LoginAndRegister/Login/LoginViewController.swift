@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
     //MARK: Outlet
@@ -22,6 +23,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTxt: UITextField!
     //MARK: Property
     var userName: String?
+    var userModel: UserModel?
     var isSecureTextField: Bool = true
     let togglePasswordBtn = UIButton(type: .custom)
     //MARK: Recycle ViewController
@@ -32,7 +34,7 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -78,10 +80,32 @@ class LoginViewController: UIViewController {
             togglePasswordBtn.setImage(UIImage(named: "hide"), for: .normal)
         }
     }
+    
+    //MARK: Action
+    @IBAction func onclickRegister(_ sender: Any) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.push(storyBoard: "Main", type: RegisterViewController.self) { (destinationVC) in
+            destinationVC?.delegate = self
+        }
+    }
+    
+    @IBAction func onclickLogin(_ sender: Any) {
+        guard let userModel = userModel,
+            let email = userModel.email,
+            let password = userModel.password else { return }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            if error == nil {
+                Auth.auth().signIn(withEmail: email, password: password)
+                let vc = UIStoryboard(name: "MainTabbar", bundle: nil).instantiateViewController(withIdentifier: MainTabbarController.className) as? MainTabbarController
+                self.navigationController?.pushViewController(vc!, animated: true)
+            }
+        }
+    }
 }
 
 extension LoginViewController: RegisterViewControllerProtocol {
     func passData(userModel: UserModel) {
-        userNameTxt.text = userModel.userName
+        self.userModel = userModel
     }
 }

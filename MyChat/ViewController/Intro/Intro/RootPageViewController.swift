@@ -34,9 +34,6 @@ class RootPageViewController: UIPageViewController {
     //MARK: Config
     private func configPageControl() {
         pageControl = UIPageControl(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY - 100, width: UIScreen.main.bounds.width, height: 50))
-//        pageControl?.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
-//        pageControl?.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-//        pageControl?.topAnchor.constraint(equalTo: (intro?.stackViewBtn.bottomAnchor)!, constant: 50).isActive = true
         pageControl?.numberOfPages = viewControllersList.count
         pageControl?.currentPage = 0
         pageControl?.tintColor = UIColor(red: 21/255, green: 180/255, blue: 241/255, alpha: 0.2)
@@ -72,5 +69,5 @@ extension RootPageViewController: UIPageViewControllerDataSource, UIPageViewCont
         }
     }
     
-    
+     
 }

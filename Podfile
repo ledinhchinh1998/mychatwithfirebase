@@ -4,10 +4,12 @@
 target 'MyChat' do
 
   # Comment the next line if you don't want to use dynamic frameworks
-  use_modular_headers!
+  inhibit_all_warnings!
   pod 'IQKeyboardManagerSwift'
   pod 'SVProgressHUD'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
   # Pods for MyChat
 
   target 'MyChatTests' do

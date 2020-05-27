@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5SU-q3-qkG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5SU-q3-qkG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro-1" translatesAutoresizingMaskIntoConstraints="NO" id="pKP-Oe-76s">
-                                <rect key="frame" x="20" y="144" width="374" height="250.00000000000011"/>
+                                <rect key="frame" x="20" y="144" width="374" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="zXV-9f-1y9"/>
                                 </constraints>
@@ -46,15 +46,52 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Tn2-sL-fOC">
+                                <rect key="frame" x="20" y="540.5" width="374" height="105"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xp-iF-ozW">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <color key="backgroundColor" red="1" green="0.71224950350000005" blue="0.74386056990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="rpe-Ja-68n"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <state key="normal" title="Get it">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onclickLogin:" destination="qAB-St-SpL" eventType="touchUpInside" id="DsT-ZC-OZE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zys-kL-TP4">
+                                        <rect key="frame" x="0.0" y="55" width="374" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Skip">
+                                            <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onclickRegister:" destination="qAB-St-SpL" eventType="touchUpInside" id="bHU-vh-MjF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Tn2-sL-fOC" firstAttribute="leading" secondItem="1Xv-dv-tTZ" secondAttribute="leading" constant="20" id="8Lv-Pk-M9v"/>
                             <constraint firstItem="pKP-Oe-76s" firstAttribute="leading" secondItem="1Xv-dv-tTZ" secondAttribute="leading" constant="20" id="E5k-l8-EOd"/>
                             <constraint firstItem="1Xv-dv-tTZ" firstAttribute="trailing" secondItem="pKP-Oe-76s" secondAttribute="trailing" constant="20" id="I81-bN-SCa"/>
                             <constraint firstItem="pKP-Oe-76s" firstAttribute="top" secondItem="1Xv-dv-tTZ" secondAttribute="top" constant="100" id="MfK-vc-jIL"/>
+                            <constraint firstItem="Tn2-sL-fOC" firstAttribute="centerX" secondItem="k2J-Ku-kvc" secondAttribute="centerX" id="TCW-CK-xdw"/>
                             <constraint firstItem="Qye-qS-4VT" firstAttribute="centerX" secondItem="k2J-Ku-kvc" secondAttribute="centerX" id="Uwr-Mi-PlP"/>
                             <constraint firstItem="Qye-qS-4VT" firstAttribute="leading" secondItem="1Xv-dv-tTZ" secondAttribute="leading" constant="20" id="W27-tx-Vqx"/>
                             <constraint firstItem="Qye-qS-4VT" firstAttribute="top" secondItem="pKP-Oe-76s" secondAttribute="bottom" constant="20" id="hhq-uy-5OA"/>
+                            <constraint firstItem="Tn2-sL-fOC" firstAttribute="top" secondItem="Qye-qS-4VT" secondAttribute="bottom" constant="50" id="q5M-bb-2u3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Xv-dv-tTZ"/>
                     </view>
@@ -94,15 +131,52 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="btw-2b-IUb">
+                                <rect key="frame" x="20" y="540.5" width="374" height="105"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0E-H8-VnE">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <color key="backgroundColor" red="1" green="0.71224950350000005" blue="0.74386056990000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="nho-Br-Kv3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <state key="normal" title="Get it">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onclickLogin:" destination="4yc-jb-DM5" eventType="touchUpInside" id="tVM-O1-oGo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvv-gd-3Ue">
+                                        <rect key="frame" x="0.0" y="55" width="374" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Skip">
+                                            <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onclickRegister:" destination="4yc-jb-DM5" eventType="touchUpInside" id="SUv-wT-oO9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Fbb-rR-kgJ" firstAttribute="leading" secondItem="52s-Wb-E3s" secondAttribute="leading" constant="20" id="D17-Mf-sSq"/>
                             <constraint firstItem="Fbb-rR-kgJ" firstAttribute="top" secondItem="h0S-eA-wgw" secondAttribute="bottom" constant="20" id="ISA-b6-CwW"/>
+                            <constraint firstItem="btw-2b-IUb" firstAttribute="centerX" secondItem="52s-Wb-E3s" secondAttribute="centerX" id="JDh-Gu-mbc"/>
                             <constraint firstItem="h0S-eA-wgw" firstAttribute="centerX" secondItem="52s-Wb-E3s" secondAttribute="centerX" id="Z5X-i1-Yko"/>
                             <constraint firstItem="h0S-eA-wgw" firstAttribute="top" secondItem="wz1-zv-5JO" secondAttribute="top" constant="100" id="ceR-fh-mgE"/>
+                            <constraint firstItem="btw-2b-IUb" firstAttribute="leading" secondItem="wz1-zv-5JO" secondAttribute="leading" constant="20" id="mBg-e8-omo"/>
                             <constraint firstItem="Fbb-rR-kgJ" firstAttribute="centerX" secondItem="52s-Wb-E3s" secondAttribute="centerX" id="mXQ-RD-csc"/>
                             <constraint firstItem="h0S-eA-wgw" firstAttribute="leading" secondItem="52s-Wb-E3s" secondAttribute="leading" constant="20" id="y7V-sA-aAX"/>
+                            <constraint firstItem="btw-2b-IUb" firstAttribute="top" secondItem="Fbb-rR-kgJ" secondAttribute="bottom" constant="50" id="yJq-gF-Hso"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wz1-zv-5JO"/>
                     </view>
@@ -152,7 +226,7 @@
                                             <constraint firstAttribute="height" constant="50" id="2jy-KA-tnH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                        <state key="normal" title="Login">
+                                        <state key="normal" title="Get it">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -161,17 +235,17 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="onclickLogin:" destination="iNg-o9-TLG" eventType="touchUpInside" id="OMl-rW-slc"/>
+                                            <action selector="onclickLogin:" destination="iNg-o9-TLG" eventType="touchUpInside" id="Rfj-Zc-vTb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpZ-CG-Fom">
                                         <rect key="frame" x="0.0" y="55" width="374" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="Register">
+                                        <state key="normal" title="Skip">
                                             <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="onclickRegister:" destination="iNg-o9-TLG" eventType="touchUpInside" id="m2t-my-Hnp"/>
+                                            <action selector="onclickRegister:" destination="iNg-o9-TLG" eventType="touchUpInside" id="yWd-6z-5zw"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -251,7 +325,6 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="5SU-q3-qkG" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="y3A-eS-20L">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

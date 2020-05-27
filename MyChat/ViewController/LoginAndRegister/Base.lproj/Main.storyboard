@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="MyChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,14 +23,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQM-fM-Rnp">
-                                <rect key="frame" x="167" y="44" width="80" height="122.5"/>
+                                <rect key="frame" x="167" y="88" width="80" height="116"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="NQC-Kn-893"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tur-fp-T1A">
-                                <rect key="frame" x="62" y="166.5" width="290" height="512.5"/>
+                                <rect key="frame" x="62" y="204" width="290" height="512.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat-box" translatesAutoresizingMaskIntoConstraints="NO" id="kIc-Pt-8ny">
                                         <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
@@ -115,6 +115,9 @@
                                                 <real key="value" value="6"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onclickLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m6g-4m-d1g"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMS-6O-YbV">
                                         <rect key="frame" x="0.0" y="357" width="290" height="50"/>
@@ -137,7 +140,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="NcC-Lq-skY" kind="presentation" id="2RS-L0-uQt"/>
+                                            <action selector="onclickRegister:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wBw-Vi-90S"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mcG-sB-yWc">
@@ -214,6 +217,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Login" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="tGt-45-aT0"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="btnApple" destination="Sgk-ef-16X" id="DLS-qU-cgb"/>
                         <outlet property="btnFacebook" destination="e8a-47-uqx" id="GyP-lm-7Ev"/>
@@ -229,18 +234,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-954" y="-19"/>
+            <point key="canvasLocation" x="-44.927536231884062" y="-19.419642857142858"/>
         </scene>
         <!--Register-->
         <scene sceneID="mXc-PF-f8Q">
             <objects>
                 <viewController storyboardIdentifier="RegisterViewController" id="0FR-Z6-On7" customClass="RegisterViewController" customModule="MyChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YOv-he-POj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmP-Td-n8d">
-                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alK-wi-Zo7">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="624"/>
@@ -456,7 +461,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OZ3-eg-Qeb"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Register" id="kEB-do-lGn"/>
+                    <navigationItem key="navigationItem" title="Register" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="kEB-do-lGn"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="confirmPasswordTxt" destination="PCh-24-PBe" id="7NY-M0-mTL"/>
                         <outlet property="emailTxt" destination="Fqn-Dl-kTk" id="tdl-k9-RJA"/>
@@ -477,26 +483,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5m-pk-rkw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="786.95652173913049" y="-19.419642857142858"/>
-        </scene>
-        <!--Register-->
-        <scene sceneID="6Od-D0-ZLy">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NcC-Lq-skY" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Register" id="RKN-25-RUK"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FYL-Ll-igc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="0FR-Z6-On7" kind="relationship" relationship="rootViewController" id="K37-55-mwf"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YJk-7F-bxd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-49" y="-19"/>
+            <point key="canvasLocation" x="738" y="-19"/>
         </scene>
     </scenes>
     <resources>

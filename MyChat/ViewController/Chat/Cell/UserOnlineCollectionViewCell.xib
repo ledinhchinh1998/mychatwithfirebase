@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserOnlineCollectionViewCell" id="gTV-IL-0wX" customClass="UserOnlineCollectionViewCell" customModule="MyChat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="101" height="94"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="101" height="94"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cy3-S5-0nn">
+                        <rect key="frame" x="0.0" y="0.0" width="101" height="94"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VZo-h7-erQ">
+                                <rect key="frame" x="0.0" y="5" width="101" height="89"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-people" translatesAutoresizingMaskIntoConstraints="NO" id="Zk7-nQ-cLl">
+                                        <rect key="frame" x="25.5" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="4sV-9Y-Fsr"/>
+                                            <constraint firstAttribute="width" constant="50" id="kcW-Ct-iGl"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ph-hl-Hwn">
+                                        <rect key="frame" x="33.5" y="55" width="34.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VZo-h7-erQ" firstAttribute="leading" secondItem="Cy3-S5-0nn" secondAttribute="leading" id="7pe-mC-2kG"/>
+                            <constraint firstAttribute="trailing" secondItem="VZo-h7-erQ" secondAttribute="trailing" id="FAL-VF-DPB"/>
+                            <constraint firstItem="VZo-h7-erQ" firstAttribute="top" secondItem="Cy3-S5-0nn" secondAttribute="top" constant="5" id="Vjv-hq-PMA"/>
+                            <constraint firstAttribute="bottom" secondItem="VZo-h7-erQ" secondAttribute="bottom" id="eEJ-lr-FyK"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Cy3-S5-0nn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="41a-qO-QTR"/>
+                <constraint firstItem="Cy3-S5-0nn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Mi7-ZS-Ln4"/>
+                <constraint firstAttribute="bottom" secondItem="Cy3-S5-0nn" secondAttribute="bottom" id="UAa-8k-zre"/>
+                <constraint firstAttribute="trailing" secondItem="Cy3-S5-0nn" secondAttribute="trailing" id="tLJ-dE-CeV"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="101" height="94"/>
+            <point key="canvasLocation" x="9.4202898550724647" y="103.125"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ic-people" width="64" height="64"/>
+    </resources>
+</document>

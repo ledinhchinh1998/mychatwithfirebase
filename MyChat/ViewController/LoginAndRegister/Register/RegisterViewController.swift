@@ -29,6 +29,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var validatePasswordLbl: UILabel!
     @IBOutlet weak var validateConfirmPasswordLbl: UILabel!
     @IBOutlet weak var validateEmailLbl: UILabel!
+    
     //MARK: Property
     typealias Popup = RegistrationResultsPopup
     typealias Delegate = RegisterViewControllerProtocol
@@ -36,15 +37,21 @@ class RegisterViewController: UIViewController {
     private var userModel: UserModel?
     lazy var textFields = [self.firstNameTxt, self.lastNameTxt, self.passwordTxt, self.emailTxt, self.confirmPasswordTxt]
     var delegate: Delegate?
+    
     //MARK: Recycle ViewController
     override func viewDidLoad() {
         super.viewDidLoad() 
         configNavigation()
         configView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.setHidesBackButton(false, animated: true)
+    }
+    
     //MARK: Config
     private func configNavigation() {
-        let navigationBar = navigationController?.navigationBar
+        let navigationBar = self.navigationController?.navigationBar
         navigationBar?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationBar?.barTintColor = UIColor(red: 255/255, green: 175/255, blue: 189/255, alpha: 1)
         navigationItem.title = "Resiter"
@@ -65,11 +72,13 @@ class RegisterViewController: UIViewController {
             textField?.delegate = self
         }
     }
+    
     //MARK: Action
     @IBAction func onclickRegister(_ sender: Any) {
         userModel = UserModel(firstNameTxt.text ?? "", lastNameTxt.text ?? "", userNameTxt.text ?? "", passwordTxt.text ?? "", emailTxt.text ?? "")
         showPopup()
     }
+    
     //MARK: Function
     private func showPopup() {
         registrationResultPopup.view.frame = self.view.bounds
@@ -77,8 +86,8 @@ class RegisterViewController: UIViewController {
             if let userModel = self?.userModel {
                 self?.delegate?.passData(userModel: userModel)
             }
-            
-            self?.dismiss(animated: true, completion: nil)
+            self?.registrationResultPopup.view.removeFromSuperview()
+            self?.navigationController?.popViewController(animated: true)
         }
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.5, initialSpringVelocity: 0, options: [], animations: {
@@ -93,6 +102,7 @@ class RegisterViewController: UIViewController {
             }, completion: nil)
         }
     }
+    
     // Validate form
     private func validation(testStr: String) -> Bool {
         guard testStr.count > 0 && testStr.count < 18 else {

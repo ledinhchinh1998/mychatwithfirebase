@@ -12,7 +12,10 @@ class IntroViewController: UIViewController {
     //MARK: Outlet
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
-    @IBOutlet weak var stackViewBtn: UIStackView! /*  */
+    @IBOutlet weak var stackViewBtn: UIStackView!
+    
+    //MARK: Property
+    let rootViewController = LoginViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +30,7 @@ class IntroViewController: UIViewController {
     }
     
     @IBAction func onclickRegister(_ sender: Any) {
-        self.push(storyBoard: "Main", type: RegisterViewController.self) { (destinationVC) in
+        self.push(storyBoard: "Main", type: LoginViewController.self) { (destinationVC) in
             
         }
     }
