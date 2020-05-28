@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
     //MARK: Outlet
@@ -23,9 +24,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTxt: UITextField!
     //MARK: Property
     var userName: String?
-    var userModel: UserModel?
+    var userModel: ProfileModel?
     var isSecureTextField: Bool = true
     let togglePasswordBtn = UIButton(type: .custom)
+    var loginResultsPopup = LoginResultsPopup()
     //MARK: Recycle ViewController
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,22 +92,38 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onclickLogin(_ sender: Any) {
-        guard let userModel = userModel,
-            let email = userModel.email,
-            let password = userModel.password else { return }
-        
-        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-            if error == nil {
-                Auth.auth().signIn(withEmail: email, password: password)
-                let vc = UIStoryboard(name: "MainTabbar", bundle: nil).instantiateViewController(withIdentifier: MainTabbarController.className) as? MainTabbarController
-                self.navigationController?.pushViewController(vc!, animated: true)
+        if let userName = userNameTxt.text,
+            let password = passwordTxt.text {
+            SVProgressHUD.show()
+            Auth.auth().signIn(withEmail: userName, password: password) { (result, error) in
+                if error == nil {
+                    SVProgressHUD.dismiss()
+                    self.push(storyBoard: "MainTabbar", type: MainTabbarController.self) { (destinationVC) in
+                        
+                    }
+                } else {
+                    if let error = error as NSError? {
+                        guard let errorCode = AuthErrorCode(rawValue: error.code) else {
+                            print("------There was an error logging in but it could not be matched with a firebase code-----")
+                            return
+                        }
+                        switch errorCode {
+                        case .invalidEmail:
+                            self.loginResultsPopup = LoginResultsPopup(frame: self.view.bounds)
+                            self.loginResultsPopup.messageLbl.text = "Email invalid !!!"
+                            self.view.addSubview(self.loginResultsPopup)
+                        default:
+                            print("Default")
+                        }
+                    }
+                }
             }
         }
     }
 }
 
 extension LoginViewController: RegisterViewControllerProtocol {
-    func passData(userModel: UserModel) {
+    func passData(userModel: ProfileModel) {
         self.userModel = userModel
     }
 }

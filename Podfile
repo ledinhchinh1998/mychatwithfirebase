@@ -1,17 +1,15 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
-
+inhibit_all_warnings!
+pod 'Firebase/Analytics'
 target 'MyChat' do
-
-  # Comment the next line if you don't want to use dynamic frameworks
-  inhibit_all_warnings!
-  pod 'IQKeyboardManagerSwift'
+  pod 'Firebase/Core', :inhibit_warnings => true
+  pod 'Firebase/Database', :inhibit_warnings => true
+  pod 'Firebase/Auth', :inhibit_warnings => true
+  
+  use_frameworks!
   pod 'SVProgressHUD'
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Firestore'
-  # Pods for MyChat
-
+  pod 'IQKeyboardManagerSwift'
   target 'MyChatTests' do
     inherit! :search_paths
     # Pods for testing

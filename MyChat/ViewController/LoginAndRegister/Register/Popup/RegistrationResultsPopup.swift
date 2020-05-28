@@ -21,7 +21,7 @@ class RegistrationResultsPopup: UIViewController {
     
     //MARK: Recycle Viewcontroller
     override func viewDidLoad() {
-        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        view.backgroundColor = Contains.backgroundColorForPopup
     }
     
     //MARK: Action

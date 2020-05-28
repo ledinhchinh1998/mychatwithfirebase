@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Firebase
+import SVProgressHUD
 
 protocol RegisterViewControllerProtocol {
-    func passData(userModel: UserModel)
+    func passData(userModel: ProfileModel)
 }
 
 class RegisterViewController: UIViewController {
@@ -34,9 +36,10 @@ class RegisterViewController: UIViewController {
     typealias Popup = RegistrationResultsPopup
     typealias Delegate = RegisterViewControllerProtocol
     private var registrationResultPopup = Popup(nibName: Popup.className, bundle: nil)
-    private var userModel: UserModel?
+    private var userModel: ProfileModel?
     lazy var textFields = [self.firstNameTxt, self.lastNameTxt, self.passwordTxt, self.emailTxt, self.confirmPasswordTxt]
     var delegate: Delegate?
+    var ref = Database.database().reference(withPath: "user")
     
     //MARK: Recycle ViewController
     override func viewDidLoad() {
@@ -75,21 +78,47 @@ class RegisterViewController: UIViewController {
     
     //MARK: Action
     @IBAction func onclickRegister(_ sender: Any) {
-        userModel = UserModel(firstNameTxt.text ?? "", lastNameTxt.text ?? "", userNameTxt.text ?? "", passwordTxt.text ?? "", emailTxt.text ?? "")
-        showPopup()
+        userModel = ProfileModel(firstNameTxt.text ?? "", lastNameTxt.text ?? "", userNameTxt.text ?? "", passwordTxt.text ?? "", emailTxt.text ?? "", "")
+        if let userModel = self.userModel,
+            let email = userModel.email,
+            let password = userModel.password,
+            let userName = userModel.userName {
+            SVProgressHUD.show()
+            let userRef = self.ref.child(userName)
+            userRef.setValue(userModel.toAnyObject())
+            Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+                if error == nil {
+                    Auth.auth().signIn(withEmail: email, password: password)
+                    self.showPopup(registerSuccess: true)
+                } else {
+                    self.showPopup(registerSuccess: false)
+                }
+            }
+        }
     }
     
     //MARK: Function
-    private func showPopup() {
+    private func showPopup(registerSuccess: Bool) {
         registrationResultPopup.view.frame = self.view.bounds
-        registrationResultPopup.handle = { [weak self] in
-            if let userModel = self?.userModel {
-                self?.delegate?.passData(userModel: userModel)
+        if registerSuccess {
+            self.registrationResultPopup.messageLbl.text = "Check your email for chat confirmation. We'll  see you soon!"
+            self.registrationResultPopup.titleLbl.text = "Success"
+            self.registrationResultPopup.checkImg.image = UIImage(named: "check")
+            registrationResultPopup.handle = { [weak self] in
+                self?.registrationResultPopup.view.removeFromSuperview()
+                self?.navigationController?.popViewController(animated: true)
             }
-            self?.registrationResultPopup.view.removeFromSuperview()
-            self?.navigationController?.popViewController(animated: true)
+        } else {
+            self.registrationResultPopup.checkImg.image = UIImage(named: "error")
+            self.registrationResultPopup.messageLbl.text = "The register could not be made. Try again!"
+            self.registrationResultPopup.titleLbl.text = "Failed"
+            self.registrationResultPopup.view.removeFromSuperview()
+            registrationResultPopup.handle = { [weak self] in
+                self?.registrationResultPopup.view.removeFromSuperview()
+            }
         }
         
+        SVProgressHUD.dismiss()
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.5, initialSpringVelocity: 0, options: [], animations: {
             self.registrationResultPopup.view.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
             self.registrationResultPopup.view.transform = .identity

@@ -1,4 +1,4 @@
-module Pods_MyChat_MyChatUITests {
+framework module Pods_MyChat_MyChatUITests {
   umbrella header "Pods-MyChat-MyChatUITests-umbrella.h"
 
   export *
