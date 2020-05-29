@@ -61,10 +61,13 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="101" height="94"/>
+            <connections>
+                <outlet property="nameLbl" destination="3Ph-hl-Hwn" id="jz1-ja-upH"/>
+            </connections>
             <point key="canvasLocation" x="9.4202898550724647" y="103.125"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="ic-people" width="64" height="64"/>
+        <image name="ic-people" width="32" height="32"/>
     </resources>
 </document>

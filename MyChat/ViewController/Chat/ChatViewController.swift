@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class ChatViewController: UIViewController {
     
@@ -18,12 +19,14 @@ class ChatViewController: UIViewController {
     
     //MARK: Property
     let user = Auth.auth().currentUser
+    var users = [UserModel]()
+    let ref = Database.database().reference(withPath: "app-chat")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configTableView()
         configCollectionView()
+        fetchUser()
     }
     
     //MARK: Config
@@ -40,12 +43,28 @@ class ChatViewController: UIViewController {
         collectionView.register(UINib(nibName: UserOnlineCollectionViewCell.className, bundle: nil), forCellWithReuseIdentifier: UserOnlineCollectionViewCell.className)
         collectionView.showsHorizontalScrollIndicator = false
     }
+    
+    private func fetchUser() {
+        SVProgressHUD.show()
+        ref.child("users").observe(.value, with: { (snapshot) in
+            for child in snapshot.children {
+                let user = UserModel(snapshot: child as! DataSnapshot)
+                if let user = user {
+                    self.users.append(user)
+                }
+            }
+            self.collectionView.reloadData()
+            SVProgressHUD.dismiss()
+        }) { (cancel) in
+            SVProgressHUD.dismiss()
+        }
+    }
 }
 
 //MARK: UITableViewDelegate, UITableViewDataSource
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,18 +80,18 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
 //MARK: UICollectionViewDelegate, UICollectionViewDataSource
 extension ChatViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return users.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReuseableCell(cell: UserOnlineCollectionViewCell.self, for: indexPath) { (collectionViewCell) in
-            
+            collectionViewCell.nameLbl.text = users[indexPath.row].name
         }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 75, height: 75)
+        return CGSize(width: 75, height: 80)
     }
 }

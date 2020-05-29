@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--item-->
+        <!--Friend-->
         <scene sceneID="s87-A3-bJe">
             <objects>
                 <viewController id="etg-BU-DxP" sceneMemberID="viewController">
@@ -17,13 +17,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Ybu-8y-cpj"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="item" id="Cry-Lk-rST"/>
+                    <tabBarItem key="tabBarItem" title="Friend" id="Cry-Lk-rST"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lmf-5U-x9s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="617" y="-665"/>
         </scene>
-        <!--item-->
+        <!--New feed-->
         <scene sceneID="fnn-h2-Qmy">
             <objects>
                 <viewController id="Xdj-fU-HjE" sceneMemberID="viewController">
@@ -33,7 +33,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="rcw-VH-lgU"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="item" id="itZ-bA-Nwm"/>
+                    <tabBarItem key="tabBarItem" title="New feed" id="itZ-bA-Nwm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aei-Ei-Vel" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,33 +51,11 @@
             </objects>
             <point key="canvasLocation" x="1445" y="514"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="efg-hR-1wC">
-            <objects>
-                <viewController id="uaI-QJ-Zrg" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="obx-q2-H81">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="5HE-ys-JBy"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="9UO-lU-bfc"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sm3-ZL-68X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2201" y="11"/>
-        </scene>
-        <!--item-->
+        <!--Profile-->
         <scene sceneID="QeS-av-GVo">
             <objects>
-                <viewController id="2dZ-We-p3y" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8IO-Pv-2DP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="N4v-zR-W5j"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="item" id="7Lw-kN-rgs"/>
+                <viewController id="2dZ-We-p3y" customClass="ProfileViewController" customModule="MyChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" id="7Lw-kN-rgs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mO-cW-WRp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -89,13 +67,13 @@
                 <tabBarController storyboardIdentifier="MainTabbarController" automaticallyAdjustsScrollViewInsets="NO" id="W8T-2Q-Fm0" customClass="MainTabbarController" customModule="MyChat" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p5u-o4-6zi">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="bLh-Cq-ff0" kind="relationship" relationship="viewControllers" id="uUJ-Y9-KdN"/>
                         <segue destination="Xdj-fU-HjE" kind="relationship" relationship="viewControllers" id="oB6-RP-JHA"/>
-                        <segue destination="uaI-QJ-Zrg" kind="relationship" relationship="viewControllers" id="z67-a3-Lj3"/>
                         <segue destination="etg-BU-DxP" kind="relationship" relationship="viewControllers" id="Bjh-aA-ZG4"/>
                         <segue destination="2dZ-We-p3y" kind="relationship" relationship="viewControllers" id="4nu-rj-hV0"/>
                     </connections>

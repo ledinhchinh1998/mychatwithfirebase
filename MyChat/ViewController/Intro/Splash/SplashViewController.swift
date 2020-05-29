@@ -28,7 +28,7 @@ class SplashViewController: UIViewController {
     
     //MARK: Function
     private func animatedSplash() {
-        UIView.animate(withDuration: 2, delay: 1, animations: {
+        UIView.animate(withDuration: 2, delay: 0, animations: {
             self.img.transform = CGAffineTransform(translationX: 0, y: 15)
             self.lbl.transform = CGAffineTransform(translationX: 0, y: -15)
         }) { (completion) in

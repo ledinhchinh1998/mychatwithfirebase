@@ -39,7 +39,7 @@ class RegisterViewController: UIViewController {
     private var userModel: ProfileModel?
     lazy var textFields = [self.firstNameTxt, self.lastNameTxt, self.passwordTxt, self.emailTxt, self.confirmPasswordTxt]
     var delegate: Delegate?
-    var ref = Database.database().reference(withPath: "user")
+    var ref = Database.database().reference(withPath: "app-chat")
     
     //MARK: Recycle ViewController
     override func viewDidLoad() {
@@ -84,11 +84,19 @@ class RegisterViewController: UIViewController {
             let password = userModel.password,
             let userName = userModel.userName {
             SVProgressHUD.show()
-            let userRef = self.ref.child(userName)
-            userRef.setValue(userModel.toAnyObject())
             Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
                 if error == nil {
-                    Auth.auth().signIn(withEmail: email, password: password)
+                    if let uid = result?.user.uid {
+                        let usersRefer = self.ref.child("users").child(uid)
+                        let values = ["name": userName, "email": email]
+                        usersRefer.updateChildValues(values) { (err, ref) in
+                            if err == nil {
+                                print("Saved user successfully into firebase db")
+                            } else {
+                                print("Update child values user is failed")
+                            }
+                        }
+                    }
                     self.showPopup(registerSuccess: true)
                 } else {
                     self.showPopup(registerSuccess: false)

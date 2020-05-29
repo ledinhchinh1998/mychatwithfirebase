@@ -73,10 +73,11 @@ extension UIView {
         layer.addSublayer(border)
     }
     //MARK: Add shadow
-    func addShadowCustom(_ shadowOffset: CGSize?,_ shadowRadius: CGFloat,_ shadowOpacity: Float) {
-        self.layer.shadowOffset = .zero
+    func addShadowCustom(_ shadowOffset: CGSize,_ shadowRadius: CGFloat,_ shadowOpacity: Float) {
+        self.layer.shadowOffset = shadowOffset
         self.layer.shadowRadius = shadowRadius
         self.layer.shadowOpacity = shadowOpacity
+        self.layer.masksToBounds = false
     }
     
     func addShadowDistanceBottom(_ shadowRadius: CGFloat,_ shadowOpacity: Float,_ distance: CGFloat,_ shadowSize: CGFloat) {

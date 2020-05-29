@@ -9,7 +9,9 @@
 import UIKit
 
 class UserOnlineCollectionViewCell: UICollectionViewCell {
-
+    
+    //MARK: Outlet
+    @IBOutlet weak var nameLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
