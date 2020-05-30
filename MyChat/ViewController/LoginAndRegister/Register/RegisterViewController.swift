@@ -11,7 +11,7 @@ import Firebase
 import SVProgressHUD
 
 protocol RegisterViewControllerProtocol {
-    func passData(userModel: ProfileModel)
+    func passData(userModel: UserModel)
 }
 
 class RegisterViewController: UIViewController {
@@ -36,7 +36,7 @@ class RegisterViewController: UIViewController {
     typealias Popup = RegistrationResultsPopup
     typealias Delegate = RegisterViewControllerProtocol
     private var registrationResultPopup = Popup(nibName: Popup.className, bundle: nil)
-    private var userModel: ProfileModel?
+    private var userModel: UserModel?
     lazy var textFields = [self.firstNameTxt, self.lastNameTxt, self.passwordTxt, self.emailTxt, self.confirmPasswordTxt]
     var delegate: Delegate?
     var ref = Database.database().reference(withPath: "app-chat")
@@ -78,7 +78,12 @@ class RegisterViewController: UIViewController {
     
     //MARK: Action
     @IBAction func onclickRegister(_ sender: Any) {
-        userModel = ProfileModel(firstNameTxt.text ?? "", lastNameTxt.text ?? "", userNameTxt.text ?? "", passwordTxt.text ?? "", emailTxt.text ?? "", "")
+        let firstName = firstNameTxt.text ?? ""
+        let lastName = lastNameTxt.text ?? ""
+        let userName = userNameTxt.text ?? ""
+        let password = passwordTxt.text ?? ""
+        let email = emailTxt.text ?? ""
+        userModel = UserModel(firstName, lastName, userName, password, email)
         if let userModel = self.userModel,
             let email = userModel.email,
             let password = userModel.password,
@@ -87,8 +92,15 @@ class RegisterViewController: UIViewController {
             Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
                 if error == nil {
                     if let uid = result?.user.uid {
-                        let usersRefer = self.ref.child("users").child(uid)
-                        let values = ["name": userName, "email": email]
+                        let usersRefer = Contains.users.child(uid)
+                        let values = [
+                            "firstName": firstName,
+                            "lastName": lastName,
+                            "userName": userName,
+                            "password": password,
+                            "email": email,
+                        ]
+                        
                         usersRefer.updateChildValues(values) { (err, ref) in
                             if err == nil {
                                 print("Saved user successfully into firebase db")

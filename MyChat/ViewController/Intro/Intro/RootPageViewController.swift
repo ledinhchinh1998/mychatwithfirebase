@@ -13,9 +13,9 @@ class RootPageViewController: UIPageViewController {
     var pageControl: UIPageControl?
     lazy var viewControllersList: [UIViewController] = {
         let storyboard = UIStoryboard(name: "Intro", bundle: nil)
-        let vc1 = storyboard.instantiateViewController(identifier: "ViewController1")
-        let vc2 = storyboard.instantiateViewController(identifier: "ViewController2")
-        let vc3 = storyboard.instantiateViewController(identifier: "ViewController3")
+        let vc1 = storyboard.instantiateViewController(withIdentifier: "ViewController1")
+        let vc2 = storyboard.instantiateViewController(withIdentifier: "ViewController2")
+        let vc3 = storyboard.instantiateViewController(withIdentifier: "ViewController3")
         return [vc1, vc2, vc3]
     }()
     

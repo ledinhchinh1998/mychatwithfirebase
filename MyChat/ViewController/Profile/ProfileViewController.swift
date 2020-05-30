@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import SDWebImage
+import SVProgressHUD
 
 class ProfileViewController: UIViewController {
     
@@ -23,12 +25,19 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var commentLbl: UILabel!
     @IBOutlet weak var notificationCmtLbl: UILabel!
     @IBOutlet weak var editLbl: UILabel!
-    
     @IBOutlet weak var containerStackView: UIView!
+    
+    //MARK: Property
+    lazy var currentUser: User? = {
+        return Auth.auth().currentUser
+    }()
+    
+    var user: UserModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configLayout()
+        configProfile()
     }
     
     //MARK: Config
@@ -37,6 +46,25 @@ class ProfileViewController: UIViewController {
         avatarImg.addGestureRecognizer(tapGesture)
         avatarImg.isUserInteractionEnabled = true
         containerStackView.addShadowCustom(CGSize(width: 0.0, height: 6.0), 10, 0.5)
+    }
+    
+    private func configProfile() {
+        Contains.users.child(currentUser?.uid ?? "").observe(.value) { (snapshot) in
+            self.user = UserModel(snapshot: snapshot)
+            guard let userName = self.user?.userName,
+                let _ = self.user?.email,
+                let profileImage = self.user?.avatarImgUrl else {
+                    SVProgressHUD.dismiss()
+                    return 
+            }
+            
+            if let url = URL(string: profileImage) {
+                self.avatarImg?.sd_setImage(with: url, completed: nil)
+            }
+            
+            self.nameLbl.text = userName
+            SVProgressHUD.dismiss()
+        }
     }
     
     //MARK: Function
@@ -108,23 +136,24 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         dismiss(animated: true) {
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage  {
-                let storageRef = Storage.storage().reference().child("tst")
+                let imageName = NSUUID().uuidString
+                let storageRef = Storage.storage().reference().child("profile-image").child("\(imageName)")
                 guard let uploadData = image.pngData() else {
                     return
                 }
-                
+                SVProgressHUD.show()
                 storageRef.putData(uploadData, metadata: nil) { (metaData, err) in
                     if err == nil {
                         storageRef.downloadURL(completion: { (url, err) in
                             if let url = url,
-                                let uid = Auth.auth().currentUser?.uid {
+                                let uid = self.currentUser?.uid {
                                 let userRef = Contains.users.child(uid)
-                                let childUpdate = ["avatarImgUrl": "testttt"]
+                                let childUpdate = ["avatarImgUrl": url.absoluteString]
                                 userRef.updateChildValues(childUpdate) { (err, ref) in
                                     if err == nil {
                                         
                                     } else {
-                                        
+                                        print("Update child values is failed")
                                     }
                                 }
                             }

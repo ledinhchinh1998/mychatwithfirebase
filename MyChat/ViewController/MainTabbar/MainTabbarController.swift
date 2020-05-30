@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTabbarController: UITabBarController {
+    
+    //MARK: Property
+    var user: User?
     
     let arrImg = [UIImage(named: "ic-message"), UIImage(named: "newspaper"), UIImage(named: "ic-friends"), UIImage(named: "ic-profile")]
     override func viewDidLoad() {

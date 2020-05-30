@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SVProgressHUD
+import SDWebImage
 
 class ChatViewController: UIViewController {
     
@@ -18,7 +19,10 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: Property
-    let user = Auth.auth().currentUser
+    lazy var currentUser: User? = {
+        return Auth.auth().currentUser
+    }()
+    
     var users = [UserModel]()
     let ref = Database.database().reference(withPath: "app-chat")
     
@@ -85,7 +89,11 @@ extension ChatViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReuseableCell(cell: UserOnlineCollectionViewCell.self, for: indexPath) { (collectionViewCell) in
-            collectionViewCell.nameLbl.text = users[indexPath.row].name
+            let user = self.users[indexPath.row]
+            collectionViewCell.nameLbl.text = user.userName ?? ""
+            if let avatarImgUrl = URL(string: user.avatarImgUrl ?? "") {
+                collectionViewCell.avatarImg?.sd_setImage(with: avatarImgUrl, placeholderImage: UIImage(named: "ic-people"), options: [], completed: nil)
+            }
         }
         
         return cell

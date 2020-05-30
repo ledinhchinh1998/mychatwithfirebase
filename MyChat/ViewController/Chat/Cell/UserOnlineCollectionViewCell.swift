@@ -12,6 +12,7 @@ class UserOnlineCollectionViewCell: UICollectionViewCell {
     
     //MARK: Outlet
     @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var avatarImg: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
     }

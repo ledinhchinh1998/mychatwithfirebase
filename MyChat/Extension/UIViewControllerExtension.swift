@@ -9,9 +9,14 @@
 import UIKit
 
 extension UIViewController {
+    
+    var appDelegate: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+    
     func push<T: UIViewController>(storyBoard: String?, type: T.Type, bundle: Bundle? = nil, handle: ((T?) -> Void)) {
         if let storyBoard = storyBoard {
-            if let viewController = UIStoryboard(name: storyBoard, bundle: bundle).instantiateViewController(identifier: T.className) as? T {
+            if let viewController = UIStoryboard(name: storyBoard, bundle: bundle).instantiateViewController(withIdentifier: T.className) as? T {
                 handle(viewController)
                 self.navigationController?.pushViewController(viewController, animated: true)
             } else {

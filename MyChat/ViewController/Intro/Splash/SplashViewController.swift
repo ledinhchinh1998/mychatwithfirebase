@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SplashViewController: UIViewController {
     
@@ -32,8 +33,24 @@ class SplashViewController: UIViewController {
             self.img.transform = CGAffineTransform(translationX: 0, y: 15)
             self.lbl.transform = CGAffineTransform(translationX: 0, y: -15)
         }) { (completion) in
-            self.push(storyBoard: "Intro", type: RootPageViewController.self) { (destinationVC) in
-                
+            if let decoded = UserDefaults.standard.object(forKey: "User") as? Data {
+                do {
+                    let user = try NSKeyedUnarchiver.unarchiveObject(with: decoded) as! User
+                    Contains.users.child(user.uid).observe(.value) { (snapshot) in
+                        let currentUser = UserModel(snapshot: snapshot)
+                        Auth.auth().signIn(withEmail: currentUser?.email ?? "", password: currentUser?.password ?? "") { (result, err) in
+                            self.push(storyBoard: "MainTabbar", type: MainTabbarController.self) { _ in
+                                
+                            }
+                        }
+                    }
+                } catch {
+                    print("Unarchived Object is failed")
+                }
+            } else {
+                self.push(storyBoard: "Intro", type: RootPageViewController.self) { (destinationVC) in
+                    
+                }
             }
         }
     }

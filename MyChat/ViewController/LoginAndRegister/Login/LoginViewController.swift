@@ -10,6 +10,10 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
+protocol LoginViewControllerDelegate {
+    func saveUser()
+}
+
 class LoginViewController: UIViewController {
     //MARK: Outlet
     @IBOutlet weak var btnFacebook: UIButton!
@@ -22,12 +26,17 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var userNameTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
+    @IBOutlet weak var saveUserBtn: UIButton!
     //MARK: Property
+    typealias Delegate = LoginViewControllerDelegate
+    
     var userName: String?
-    var userModel: ProfileModel?
+    var userModel: UserModel?
     var isSecureTextField: Bool = true
     let togglePasswordBtn = UIButton(type: .custom)
     var loginResultsPopup = LoginResultsPopup()
+    var delegate: Delegate?
+    var saveUser: Bool = false
     //MARK: Recycle ViewController
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +107,20 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(withEmail: userName, password: password) { (result, error) in
                 if error == nil {
                     SVProgressHUD.dismiss()
+                    if self.saveUser {
+                        
+                    }
+                    
+                    if let userModel = result?.user,
+                        self.saveUser {
+                        do {
+                            let encodeData: Data = try NSKeyedArchiver.archivedData(withRootObject: userModel, requiringSecureCoding: false)
+                            UserDefaults.standard.set(encodeData, forKey: "User")
+                        } catch {
+                            print("Save user default is failed")
+                        }
+                    }
+                    
                     self.push(storyBoard: "MainTabbar", type: MainTabbarController.self) { (destinationVC) in
                         
                     }
@@ -120,10 +143,20 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func onclickSaveUser(_ sender: Any) {
+        if !saveUser {
+            saveUserBtn.backgroundColor = UIColor.black
+        } else {
+            saveUserBtn.backgroundColor = UIColor.clear
+        }
+        
+        saveUser = !saveUser
+    }
 }
 
 extension LoginViewController: RegisterViewControllerProtocol {
-    func passData(userModel: ProfileModel) {
+    func passData(userModel: UserModel) {
         self.userModel = userModel
     }
 }

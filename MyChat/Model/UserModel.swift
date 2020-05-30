@@ -10,18 +10,29 @@ import Foundation
 import Firebase
 
 class UserModel: NSObject {
-    var name: String?
     var email: String?
+    var avatarImgUrl: String?
+    var firstName: String?
+    var lastName: String?
+    var userName: String?
+    var password: String?
+    
+    init(_ firstName: String?,_ lastName: String?,_ userName: String?,_ password: String?,_ email: String?) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.userName = userName
+        self.password = password
+        self.email = email
+    }
     
     init?(snapshot: DataSnapshot) {
-        guard
-            let value = snapshot.value as? [String: AnyObject],
-            let name = value["name"] as? String,
-            let email = value["email"] as? String else {
-                return nil
+        if let value = snapshot.value as? [String: AnyObject] {
+            self.email = value["email"] as? String
+            self.lastName = value["lastName"] as? String
+            self.firstName = value["firstName"] as? String
+            self.password = value["password"] as? String
+            self.avatarImgUrl = value["avatarImgUrl"] as? String
+            self.userName = value["userName"] as? String
         }
-        
-        self.name = name
-        self.email = email
     }
 }
