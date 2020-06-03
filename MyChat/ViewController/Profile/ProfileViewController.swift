@@ -65,6 +65,8 @@ class ProfileViewController: UIViewController {
             self.nameLbl.text = userName
             SVProgressHUD.dismiss()
         }
+        
+        
     }
     
     //MARK: Function
@@ -135,10 +137,10 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         dismiss(animated: true) {
-            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage  {
+            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 let imageName = NSUUID().uuidString
                 let storageRef = Storage.storage().reference().child("profile-image").child("\(imageName)")
-                guard let uploadData = image.pngData() else {
+                guard let uploadData = image.jpegData(compressionQuality: 0.2) else {
                     return
                 }
                 SVProgressHUD.show()

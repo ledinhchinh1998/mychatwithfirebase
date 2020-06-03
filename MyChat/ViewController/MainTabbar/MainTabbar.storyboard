@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W8T-2Q-Fm0">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W8T-2Q-Fm0">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +11,7 @@
             <objects>
                 <viewController id="etg-BU-DxP" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q8h-m7-hrX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Ybu-8y-cpj"/>
@@ -28,7 +27,7 @@
             <objects>
                 <viewController id="Xdj-fU-HjE" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Nx-4K-SZx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="rcw-VH-lgU"/>
@@ -42,7 +41,7 @@
         <!--Chat-->
         <scene sceneID="2lN-Xs-hA3">
             <objects>
-                <viewController id="bLh-Cq-ff0" customClass="ChatViewController" customModule="MyChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bLh-Cq-ff0" customClass="ListChatViewController" customModule="MyChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Chat" image="ic-message" id="9ZT-JG-1v8">
                         <color key="badgeColor" red="0.96130555870000001" green="0.76114847699999999" blue="0.7974713604" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBarItem>

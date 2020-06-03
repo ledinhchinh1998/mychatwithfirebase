@@ -16,13 +16,15 @@ class UserModel: NSObject {
     var lastName: String?
     var userName: String?
     var password: String?
+    var id: String?
     
-    init(_ firstName: String?,_ lastName: String?,_ userName: String?,_ password: String?,_ email: String?) {
+    init(_ firstName: String?,_ lastName: String?,_ userName: String?,_ password: String?,_ email: String?, id: String?) {
         self.firstName = firstName
         self.lastName = lastName
         self.userName = userName
         self.password = password
         self.email = email
+        self.id = id
     }
     
     init?(snapshot: DataSnapshot) {

@@ -19,11 +19,14 @@ extension UIViewController {
             if let viewController = UIStoryboard(name: storyBoard, bundle: bundle).instantiateViewController(withIdentifier: T.className) as? T {
                 handle(viewController)
                 self.navigationController?.pushViewController(viewController, animated: true)
-            } else {
-                let viewController = T(nibName: T.className, bundle: bundle)
-                handle(viewController)
-                self.navigationController?.pushViewController(viewController, animated: true)
             }
+        } else {
+            
+            
+            		
+            let viewController = T(nibName: T.className, bundle: bundle)
+            handle(viewController)
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
 }

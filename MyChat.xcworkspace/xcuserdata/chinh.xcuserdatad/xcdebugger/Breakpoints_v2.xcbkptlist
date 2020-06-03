@@ -7,32 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F4743DDB-3110-456C-91DE-240E10B377C2"
+            uuid = "4C2AB53A-45CA-40C2-B11F-78AC8047AD13"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyChat/ViewController/Intro/Splash/SplashViewController.swift"
+            filePath = "MyChat/ViewController/ListChat/ListChatViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "animatedSplash()"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "fetchMessage()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4034CA04-210F-46C5-A175-6AB0955F6EAA"
+            uuid = "0EC17D5E-D437-49E9-9C0B-69F9DAF325EE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyChat/ViewController/Intro/Splash/SplashViewController.swift"
+            filePath = "MyChat/ViewController/ListChat/ListChatViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "animatedSplash()"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "fetchMessage()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

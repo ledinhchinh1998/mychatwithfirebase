@@ -79,6 +79,7 @@ class LoginViewController: UIViewController {
         passwordTxt.rightView = togglePasswordBtn
         passwordTxt.rightViewMode = .whileEditing
     }
+    
     //MARK: Selector
     @objc private func handleTogglePassword() {
         if isSecureTextField {
@@ -141,6 +142,8 @@ class LoginViewController: UIViewController {
                     }
                 }
             }
+            
+            SVProgressHUD.dismiss()
         }
     }
     

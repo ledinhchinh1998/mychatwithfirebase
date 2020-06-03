@@ -83,7 +83,7 @@ class RegisterViewController: UIViewController {
         let userName = userNameTxt.text ?? ""
         let password = passwordTxt.text ?? ""
         let email = emailTxt.text ?? ""
-        userModel = UserModel(firstName, lastName, userName, password, email)
+        userModel = UserModel(firstName, lastName, userName, password, email, id: nil)
         if let userModel = self.userModel,
             let email = userModel.email,
             let password = userModel.password,
@@ -128,6 +128,7 @@ class RegisterViewController: UIViewController {
                 self?.registrationResultPopup.view.removeFromSuperview()
                 self?.navigationController?.popViewController(animated: true)
             }
+            
         } else {
             self.registrationResultPopup.checkImg.image = UIImage(named: "error")
             self.registrationResultPopup.messageLbl.text = "The register could not be made. Try again!"

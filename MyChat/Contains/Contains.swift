@@ -13,4 +13,5 @@ struct Contains {
     static var backgroundColorForPopup = UIColor.lightGray.withAlphaComponent(0.5)
     static let reference = Database.database().reference(withPath: "app-chat")
     static let users = Database.database().reference(withPath: "app-chat").child("users")
+    static let message = Database.database().reference(withPath: "app-chat").child("messages")
 }
