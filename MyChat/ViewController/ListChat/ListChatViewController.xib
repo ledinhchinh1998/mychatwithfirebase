@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListChatViewController" customModule="MyChat" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="1E3-eY-c6b" id="rhg-Kn-4wR"/>
+                <outlet property="leftLblBar" destination="CKu-nR-XnS" id="kNV-Wy-37m"/>
                 <outlet property="navigationBar" destination="v6J-Xs-GeI" id="dzD-rB-CD6"/>
                 <outlet property="tableView" destination="nhh-tb-O0e" id="98L-Qr-FGH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -22,17 +23,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v6J-Xs-GeI">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                     <items>
                         <navigationItem title="Chat" id="4dL-t0-5tp"/>
                     </items>
                 </navigationBar>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="HUd-5G-QUY">
-                    <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="HUd-5G-QUY">
+                    <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="1E3-eY-c6b">
-                    <rect key="frame" x="0.0" y="120" width="414" height="80"/>
+                    <rect key="frame" x="0.0" y="154" width="414" height="80"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="d86-Ua-ZOs"/>
@@ -45,23 +46,31 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nhh-tb-O0e">
-                    <rect key="frame" x="10" y="210" width="394" height="652"/>
+                    <rect key="frame" x="10" y="244" width="394" height="618"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKu-nR-XnS">
+                    <rect key="frame" x="10" y="55.5" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="CKu-nR-XnS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="0s8-EH-eEi"/>
                 <constraint firstItem="v6J-Xs-GeI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ITg-oP-Wew"/>
                 <constraint firstItem="HUd-5G-QUY" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="KGY-k7-i9F"/>
                 <constraint firstItem="1E3-eY-c6b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RHc-Gb-i7y"/>
                 <constraint firstAttribute="trailing" secondItem="v6J-Xs-GeI" secondAttribute="trailing" id="RZp-Cm-Jf9"/>
-                <constraint firstItem="v6J-Xs-GeI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="SNj-Ov-9Q8"/>
+                <constraint firstItem="CKu-nR-XnS" firstAttribute="centerY" secondItem="v6J-Xs-GeI" secondAttribute="centerY" id="UYr-Ep-SSb"/>
                 <constraint firstItem="nhh-tb-O0e" firstAttribute="top" secondItem="1E3-eY-c6b" secondAttribute="bottom" constant="10" id="Y4v-lu-Qct"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1E3-eY-c6b" secondAttribute="trailing" id="Ys2-cV-8pI"/>
                 <constraint firstItem="nhh-tb-O0e" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="bio-QS-YXh"/>
-                <constraint firstItem="1E3-eY-c6b" firstAttribute="top" secondItem="HUd-5G-QUY" secondAttribute="bottom" constant="20" id="eMd-Jt-V8l"/>
+                <constraint firstItem="1E3-eY-c6b" firstAttribute="top" secondItem="HUd-5G-QUY" secondAttribute="bottom" constant="10" id="eMd-Jt-V8l"/>
                 <constraint firstItem="HUd-5G-QUY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="k2v-UN-P0x"/>
                 <constraint firstItem="HUd-5G-QUY" firstAttribute="top" secondItem="v6J-Xs-GeI" secondAttribute="bottom" id="myC-iq-MYq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="v6J-Xs-GeI" secondAttribute="top" id="rJC-mI-Ftx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nhh-tb-O0e" secondAttribute="trailing" constant="10" id="ujf-nK-bKH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="nhh-tb-O0e" secondAttribute="bottom" id="y7t-Ul-5do"/>
             </constraints>

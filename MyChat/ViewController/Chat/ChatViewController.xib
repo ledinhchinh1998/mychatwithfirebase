@@ -21,39 +21,55 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iVj-FA-fjp">
-                    <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="754"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="f8o-Fs-yWj">
-                    <rect key="frame" x="10" y="828" width="394" height="34"/>
+                <stackView opaque="NO" contentMode="scaleAspectFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="f8o-Fs-yWj">
+                    <rect key="frame" x="15" y="813" width="384" height="34"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ceQ-NK-A09">
-                            <rect key="frame" x="0.0" y="0.0" width="353" height="34"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FfJ-oY-MZ1">
+                            <rect key="frame" x="0.0" y="0.0" width="16" height="34"/>
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <state key="normal" image="ic-camera"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZq-kE-xP5">
+                            <rect key="frame" x="26" y="0.0" width="16" height="34"/>
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <state key="normal" image="ic-share"/>
+                        </button>
+                        <textField opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ceQ-NK-A09">
+                            <rect key="frame" x="52" y="0.0" width="306" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZ6-li-eYx">
-                            <rect key="frame" x="358" y="0.0" width="36" height="34"/>
-                            <state key="normal" title="Send"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZ6-li-eYx">
+                            <rect key="frame" x="368" y="0.0" width="16" height="34"/>
+                            <state key="normal" image="ic-send"/>
                             <connections>
                                 <action selector="handleSendMessage:" destination="-1" eventType="touchUpInside" id="jJL-ji-cxP"/>
                             </connections>
                         </button>
                     </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="iVj-FA-fjp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="2AM-Qj-XdG"/>
-                <constraint firstItem="f8o-Fs-yWj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="7T9-uB-8J1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iVj-FA-fjp" secondAttribute="trailing" id="J3D-O9-ulc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="f8o-Fs-yWj" secondAttribute="trailing" constant="15" id="OHw-vT-K7h"/>
                 <constraint firstItem="iVj-FA-fjp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OPQ-RH-JBW"/>
-                <constraint firstItem="f8o-Fs-yWj" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="c8y-IM-QHk"/>
-                <constraint firstItem="f8o-Fs-yWj" firstAttribute="top" secondItem="iVj-FA-fjp" secondAttribute="bottom" constant="15" id="iDK-2a-vhT"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="f8o-Fs-yWj" secondAttribute="trailing" constant="10" id="uI1-Y4-NlH"/>
+                <constraint firstItem="f8o-Fs-yWj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="gET-Nf-8tQ"/>
+                <constraint firstItem="f8o-Fs-yWj" firstAttribute="top" secondItem="iVj-FA-fjp" secondAttribute="bottom" constant="15" id="qu5-jc-Gff"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="f8o-Fs-yWj" secondAttribute="bottom" constant="15" id="xfS-4x-BZQ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="132" y="133"/>
+            <point key="canvasLocation" x="131.8840579710145" y="132.58928571428572"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic-camera" width="16" height="16"/>
+        <image name="ic-send" width="16" height="16"/>
+        <image name="ic-share" width="16" height="16"/>
+    </resources>
 </document>

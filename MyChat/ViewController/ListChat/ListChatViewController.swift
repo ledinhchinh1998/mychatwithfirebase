@@ -17,6 +17,7 @@ class ListChatViewController: UIViewController {
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var leftLblBar: UILabel!
     
     //MARK: Property
     lazy var currentUser: User? = {
@@ -28,12 +29,16 @@ class ListChatViewController: UIViewController {
     var messages = [MessageModel]()
     let ref = Database.database().reference(withPath: "app-chat")
     
+    //MARK: Recycle ViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
         configCollectionView()
-        configNavigation()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        configNavigation()
         fetchUser()
         fetchMessage()
     }
@@ -55,6 +60,14 @@ class ListChatViewController: UIViewController {
     
     private func configNavigation() {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        Contains.users.child(currentUser?.uid ?? "").observeSingleEvent(of: .value) { [unowned self] (snapshot) in
+            let currentUser = UserModel(snapshot: snapshot)
+            self.leftLblBar.text = currentUser?.userName
+        }
+    }
+    
+    private func configView() {
+
     }
     
     //MARK: Function
