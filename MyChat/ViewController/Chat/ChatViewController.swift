@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import IQKeyboardManagerSwift
+import SVProgressHUD
 
 class ChatViewController: UIViewController {
     
@@ -39,6 +40,8 @@ class ChatViewController: UIViewController {
         }
     }
     
+    var childRefMessage: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
@@ -64,7 +67,7 @@ class ChatViewController: UIViewController {
     
     //MARK: Function
     private func fetchMessages(childRef: String) {
-        Contains.message.child(childRef).observe(.value) { [unowned self] (snapchat) in
+        Contains.message.child(childRef).observe(.value) { [weak self] (snapchat) in
             var listMessage = [MessageModel]()
             for child in snapchat.children {
                 if let child = child as? DataSnapshot {
@@ -74,21 +77,26 @@ class ChatViewController: UIViewController {
                 }
             }
             
-            self.listMessage.removeAll()
-            self.listMessage.append(contentsOf: listMessage)
-            self.tableView.reloadData()
+            self?.listMessage.removeAll()
+            self?.listMessage.append(contentsOf: listMessage)
+            self?.tableView.reloadData()
         }
     }
     
     private func checkRefExist() {
+        SVProgressHUD.show()
         var childRef = fromId + "-" + toId
         Contains.message.child(childRef).observeSingleEvent(of: .value) { [unowned self] (snapshot) in
             if snapshot.exists() {
                 self.fetchMessages(childRef: childRef)
+                self.childRefMessage = childRef
             } else {
                 childRef = self.toId + "-" + self.fromId
                 self.fetchMessages(childRef: childRef)
+                self.childRefMessage = childRef
             }
+            
+            SVProgressHUD.dismiss()
         }
     }
     
@@ -112,7 +120,6 @@ class ChatViewController: UIViewController {
     
     //MARK: Action
     @IBAction func handleSendMessage(_ sender: Any) {
-        let childRef = Contains.message.child(fromId + "-" + toId)
         let timeStamp = String(Date().timeIntervalSince1970)
         if let text = inputTextField.text {
             let values = [
@@ -122,7 +129,9 @@ class ChatViewController: UIViewController {
                 "timeStamp": timeStamp
             ]
             
-            childRef.childByAutoId().updateChildValues(values as [AnyHashable : Any])
+            if let childRefMessage = childRefMessage {
+                Contains.message.child(childRefMessage).childByAutoId().updateChildValues(values as [AnyHashable: Any])
+            }
         }
         
     }

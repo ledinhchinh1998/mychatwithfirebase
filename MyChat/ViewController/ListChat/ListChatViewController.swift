@@ -49,6 +49,7 @@ class ListChatViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: ChatTableViewCell.className, bundle: nil), forCellReuseIdentifier: ChatTableViewCell.className)
         tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .none
     }
     
     private func configCollectionView() {
@@ -73,14 +74,16 @@ class ListChatViewController: UIViewController {
     //MARK: Function
     private func fetchUser() {
         SVProgressHUD.show()
-        ref.child("users").observe(.value, with: { (snapshot) in
+        ref.child("users").observe(.value, with: { [unowned self] (snapshot) in
             var users = [UserModel]()
             for child in snapshot.children {
                 if let child = child as? DataSnapshot {
-                    let user = UserModel(snapshot: child)
-                    user?.id = child.key
-                    if let user = user {
-                        users.append(user)
+                    if child.key != self.currentUser?.uid {
+                        let user = UserModel(snapshot: child)
+                        user?.id = child.key
+                        if let user = user {
+                            users.append(user)
+                        }
                     }
                 }
             }
