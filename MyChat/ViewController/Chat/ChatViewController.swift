@@ -14,8 +14,9 @@ import SVProgressHUD
 class ChatViewController: UIViewController {
     
     //MARK: Outlet
-    @IBOutlet weak var inputTextField: UITextField!
+    @IBOutlet weak var inputTextView: UITextView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var stackView: UIStackView!
     
     //MARK: Property
     var listMessage = [MessageModel]()
@@ -46,10 +47,8 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
         configTableView()
         checkRefExist()
-//        IQKeyboardManager.shared.enable = false
         configNavigation()
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        configTextView()
     }
     
     //MARK: Config navigationController
@@ -61,8 +60,15 @@ class ChatViewController: UIViewController {
     private func configTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: MessageTableViewCell.className, bundle: nil), forCellReuseIdentifier: MessageTableViewCell.className)
+        tableView.register(UINib(nibName: MessageByOtherTableViewCell.className, bundle: nil), forCellReuseIdentifier: MessageByOtherTableViewCell.className)
         tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableView.automaticDimension
+        self.view.layoutIfNeeded()
+    }
+    
+    private func configTextView() {
+        inputTextView.delegate = self
     }
     
     //MARK: Function
@@ -121,33 +127,47 @@ class ChatViewController: UIViewController {
     //MARK: Action
     @IBAction func handleSendMessage(_ sender: Any) {
         let timeStamp = String(Date().timeIntervalSince1970)
-        if let text = inputTextField.text {
+        if let text = inputTextView.text {
             let values = [
                 "text": text,
                 "toID": toId,
                 "fromID": fromId,
-                "timeStamp": timeStamp
+                "timeStamp": timeStamp,
+                "sender": fromId
             ]
             
-            if let childRefMessage = childRefMessage {
+            if let childRefMessage = childRefMessage, inputTextView.text != "" {
                 Contains.message.child(childRefMessage).childByAutoId().updateChildValues(values as [AnyHashable: Any])
             }
         }
         
+        inputTextView.text = ""
+        
     }
 }
 
+//MARK: TableView Delegate & Datasource
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listMessage.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(cell: MessageTableViewCell.self, for: indexPath) { (tableViewCell) in
-            tableViewCell.messageLbl.text = listMessage[indexPath.row].text
+        let message = listMessage[indexPath.row]
+        let cell = tableView.dequeueReusableCell(cell: MessageByOtherTableViewCell.self, for: indexPath) { (tableViewCell) in
+            if message.sender == fromId {
+                
+            } else {
+                
+            }
+            tableViewCell.messageLbl.text = message.text
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
 
@@ -155,5 +175,16 @@ extension ChatViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension ChatViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        let height = inputTextView.frame.size.height
+        if height > 33 {
+            stackView.alignment = .bottom
+        } else {
+            stackView.alignment = .center
+        }
     }
 }

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3410946C248393FE00124038 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3410946A248393FE00124038 /* MessageTableViewCell.swift */; };
-		3410946D248393FE00124038 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3410946B248393FE00124038 /* MessageTableViewCell.xib */; };
+		3410946C248393FE00124038 /* MessageByOtherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3410946A248393FE00124038 /* MessageByOtherTableViewCell.swift */; };
+		3410946D248393FE00124038 /* MessageByOtherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3410946B248393FE00124038 /* MessageByOtherTableViewCell.xib */; };
 		3448D4452482B0DB00608688 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448D4432482B0DB00608688 /* ChatViewController.swift */; };
 		3448D4462482B0DB00608688 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448D4442482B0DB00608688 /* ChatViewController.xib */; };
 		348879702483EC17009AE8D5 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3488796F2483EC17009AE8D5 /* MessageModel.swift */; };
@@ -42,6 +42,8 @@
 		AB47D8E5247CF0EB00751CB1 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47D8E4247CF0EB00751CB1 /* SplashViewController.swift */; };
 		AB47D8E8247CF5F900751CB1 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47D8E7247CF5F900751CB1 /* UIViewControllerExtension.swift */; };
 		AB47D8EA247CFBC300751CB1 /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47D8E9247CFBC300751CB1 /* RootPageViewController.swift */; };
+		ABD40280248A50F9008ECFF8 /* MessageByCurrentUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4027E248A50F9008ECFF8 /* MessageByCurrentUserTableViewCell.swift */; };
+		ABD40281248A50F9008ECFF8 /* MessageByCurrentUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD4027F248A50F9008ECFF8 /* MessageByCurrentUserTableViewCell.xib */; };
 		ABF5597E247E434900D8C88A /* MainTabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5597D247E434900D8C88A /* MainTabbar.storyboard */; };
 		ABF55980247E456900D8C88A /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5597F247E456900D8C88A /* MainTabbarController.swift */; };
 		ABF55984247E4BEA00D8C88A /* ListChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF55982247E4BEA00D8C88A /* ListChatViewController.swift */; };
@@ -75,8 +77,8 @@
 /* Begin PBXFileReference section */
 		10C47AF2A5699D3AEBA210B0 /* Pods-MyChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyChatTests.debug.xcconfig"; path = "Target Support Files/Pods-MyChatTests/Pods-MyChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1729B6860833905D74BE7959 /* Pods-MyChat-MyChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyChat-MyChatUITests.debug.xcconfig"; path = "Target Support Files/Pods-MyChat-MyChatUITests/Pods-MyChat-MyChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		3410946A248393FE00124038 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
-		3410946B248393FE00124038 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		3410946A248393FE00124038 /* MessageByOtherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageByOtherTableViewCell.swift; sourceTree = "<group>"; };
+		3410946B248393FE00124038 /* MessageByOtherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageByOtherTableViewCell.xib; sourceTree = "<group>"; };
 		3448D4432482B0DB00608688 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		3448D4442482B0DB00608688 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 		3488796F2483EC17009AE8D5 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
@@ -117,6 +119,8 @@
 		AB47D8E4247CF0EB00751CB1 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		AB47D8E7247CF5F900751CB1 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		AB47D8E9247CFBC300751CB1 /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
+		ABD4027E248A50F9008ECFF8 /* MessageByCurrentUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageByCurrentUserTableViewCell.swift; sourceTree = "<group>"; };
+		ABD4027F248A50F9008ECFF8 /* MessageByCurrentUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageByCurrentUserTableViewCell.xib; sourceTree = "<group>"; };
 		ABF5597D247E434900D8C88A /* MainTabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabbar.storyboard; sourceTree = "<group>"; };
 		ABF5597F247E456900D8C88A /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		ABF55982247E4BEA00D8C88A /* ListChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChatViewController.swift; sourceTree = "<group>"; };
@@ -164,8 +168,10 @@
 		340C35342483906F0045BED0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				3410946A248393FE00124038 /* MessageTableViewCell.swift */,
-				3410946B248393FE00124038 /* MessageTableViewCell.xib */,
+				3410946A248393FE00124038 /* MessageByOtherTableViewCell.swift */,
+				3410946B248393FE00124038 /* MessageByOtherTableViewCell.xib */,
+				ABD4027E248A50F9008ECFF8 /* MessageByCurrentUserTableViewCell.swift */,
+				ABD4027F248A50F9008ECFF8 /* MessageByCurrentUserTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -547,7 +553,7 @@
 				AB048FB72477B6A500FE0832 /* Assets.xcassets in Resources */,
 				AB170BE6247F6A9C00AECECC /* LoginResultsPopup.xib in Resources */,
 				AB47D8DC247CD40600751CB1 /* GoogleService-Info.plist in Resources */,
-				3410946D248393FE00124038 /* MessageTableViewCell.xib in Resources */,
+				3410946D248393FE00124038 /* MessageByOtherTableViewCell.xib in Resources */,
 				ABF5597E247E434900D8C88A /* MainTabbar.storyboard in Resources */,
 				AB170C3A2480B2B200AECECC /* ProfileViewController.xib in Resources */,
 				3448D4462482B0DB00608688 /* ChatViewController.xib in Resources */,
@@ -556,6 +562,7 @@
 				ABF55992247E5BF100D8C88A /* ChatTableViewCell.xib in Resources */,
 				ABF55985247E4BEA00D8C88A /* ListChatViewController.xib in Resources */,
 				AB47D8DE247CD79F00751CB1 /* Intro.storyboard in Resources */,
+				ABD40281248A50F9008ECFF8 /* MessageByCurrentUserTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,7 +697,8 @@
 				ABF5598E247E5A0B00D8C88A /* UITableViewExtension.swift in Sources */,
 				ABF5598C247E50F300D8C88A /* UICollectionViewExtension.swift in Sources */,
 				AB048FAE2477B6A200FE0832 /* AppDelegate.swift in Sources */,
-				3410946C248393FE00124038 /* MessageTableViewCell.swift in Sources */,
+				ABD40280248A50F9008ECFF8 /* MessageByCurrentUserTableViewCell.swift in Sources */,
+				3410946C248393FE00124038 /* MessageByOtherTableViewCell.swift in Sources */,
 				AB170BE4247F6A8C00AECECC /* LoginResultsPopup.swift in Sources */,
 				AB47D8E5247CF0EB00751CB1 /* SplashViewController.swift in Sources */,
 				AB170C3524801C5100AECECC /* UserModel.swift in Sources */,
