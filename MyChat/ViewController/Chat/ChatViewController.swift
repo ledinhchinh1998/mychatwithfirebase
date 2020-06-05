@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import IQKeyboardManagerSwift
+import Foundation
 import SVProgressHUD
 
 class ChatViewController: UIViewController {
@@ -61,6 +62,7 @@ class ChatViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: MessageByOtherTableViewCell.className, bundle: nil), forCellReuseIdentifier: MessageByOtherTableViewCell.className)
+        tableView.register(UINib(nibName: MessageByCurrentUserTableViewCell.className, bundle: nil), forCellReuseIdentifier: MessageByCurrentUserTableViewCell.className)
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableView.automaticDimension
@@ -154,16 +156,34 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = listMessage[indexPath.row]
-        let cell = tableView.dequeueReusableCell(cell: MessageByOtherTableViewCell.self, for: indexPath) { (tableViewCell) in
-            if message.sender == fromId {
-                
-            } else {
+        if message.sender == fromId {
+            let cell = tableView.dequeueReusableCell(cell: MessageByCurrentUserTableViewCell.self, for: indexPath) { (tableViewCell) in
+                tableViewCell.messageLbl.text = message.text
+            }
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(cell: MessageByOtherTableViewCell.self, for: indexPath) { (tableViewCell) in
+                tableViewCell.messageLbl.text = message.text
+                if let timeStamp = message.timeStamp {
+                    let timeinterval: TimeInterval = (timeStamp as? NSString)!.doubleValue // convert it in to NSTimeInteral
+
+                    let dateFromServer = NSDate(timeIntervalSince1970:timeinterval) // you can the Date object from here
+
+                    print(dateFromServer) // for My Example it will print : 2014-08-22 12:11:26 +0000
+
+
+                    // Here i create a simple date formatter and print the string from DATE object. you can do it vise-versa.
+
+                    let dateFormater: DateFormatter = DateFormatter()
+                    dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    tableViewCell.timeStampLbl.text = String(dateFormater.string(from: dateFromServer as Date))
+                }
                 
             }
-            tableViewCell.messageLbl.text = message.text
+            
+            return cell
         }
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

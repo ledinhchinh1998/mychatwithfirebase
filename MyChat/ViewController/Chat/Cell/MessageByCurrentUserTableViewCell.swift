@@ -9,6 +9,9 @@
 import UIKit
 
 class MessageByCurrentUserTableViewCell: UITableViewCell {
+    
+    //MARK: Outlet
+    @IBOutlet weak var messageLbl: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
