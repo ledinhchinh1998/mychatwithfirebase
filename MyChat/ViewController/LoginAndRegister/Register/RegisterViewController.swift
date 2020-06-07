@@ -71,6 +71,8 @@ class RegisterViewController: UIViewController {
         userNameTxt.addShadowCustom(.zero, 5, 0.3)
         registerBtn.addShadowCustom(.zero, 5, 0.3)
         registerLbl.addShadowDistanceBottom(5, 0.6, 0, 3)
+        passwordTxt.isSecureTextEntry = true
+        confirmPasswordTxt.isSecureTextEntry = true
         for textField in textFields {
             textField?.delegate = self
         }

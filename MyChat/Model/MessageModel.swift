@@ -15,6 +15,7 @@ class MessageModel {
     var text: String?
     var timeStamp: String?
     var sender: String?
+    var image: String?
     
     init(_ fromId: String?,_ toId: String?,_ text: String?,_ timeStamp: String?) {
         self.fromId = fromId
@@ -30,6 +31,7 @@ class MessageModel {
             self.text = value["text"] as? String
             self.timeStamp = value["timeStamp"] as? String
             self.sender = value["sender"] as? String
+            self.image = value["image"] as? String
         }
     }
 }

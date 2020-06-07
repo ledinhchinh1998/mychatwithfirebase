@@ -34,9 +34,13 @@ class ProfileViewController: UIViewController {
     
     var user: UserModel?
     
+    //MARK: Recycle ViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         configLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         configProfile()
     }
     
@@ -49,24 +53,24 @@ class ProfileViewController: UIViewController {
     }
     
     private func configProfile() {
-        Contains.users.child(currentUser?.uid ?? "").observe(.value) { (snapshot) in
-            self.user = UserModel(snapshot: snapshot)
-            guard let userName = self.user?.userName,
-                let _ = self.user?.email,
-                let profileImage = self.user?.avatarImgUrl else {
-                    SVProgressHUD.dismiss()
-                    return 
+        if let uid = currentUser?.uid {
+            SVProgressHUD.show()
+            Contains.users.child(uid).observe(.value) { [unowned self] (snapshot) in
+                self.user = UserModel(snapshot: snapshot)
+                guard let userName = self.user?.userName,
+                    let _ = self.user?.email else {
+                        SVProgressHUD.dismiss()
+                        return
+                }
+                
+                if let url = URL(string: self.user?.avatarImgUrl ?? "") {
+                    self.avatarImg?.sd_setImage(with: url, completed: nil)
+                }
+                
+                self.nameLbl.text = userName
+                SVProgressHUD.dismiss()
             }
-            
-            if let url = URL(string: profileImage) {
-                self.avatarImg?.sd_setImage(with: url, completed: nil)
-            }
-            
-            self.nameLbl.text = userName
-            SVProgressHUD.dismiss()
         }
-        
-        
     }
     
     //MARK: Function

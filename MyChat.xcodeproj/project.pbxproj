@@ -11,6 +11,10 @@
 		3410946D248393FE00124038 /* MessageByOtherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3410946B248393FE00124038 /* MessageByOtherTableViewCell.xib */; };
 		3448D4452482B0DB00608688 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448D4432482B0DB00608688 /* ChatViewController.swift */; };
 		3448D4462482B0DB00608688 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448D4442482B0DB00608688 /* ChatViewController.xib */; };
+		3468EF92248D2B73002708DE /* MsgImgByOtherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3468EF90248D2B73002708DE /* MsgImgByOtherTableViewCell.swift */; };
+		3468EF93248D2B73002708DE /* MsgImgByOtherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3468EF91248D2B73002708DE /* MsgImgByOtherTableViewCell.xib */; };
+		3468EF96248D2C56002708DE /* MsgImgByCurrentUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3468EF94248D2C56002708DE /* MsgImgByCurrentUserTableViewCell.swift */; };
+		3468EF97248D2C56002708DE /* MsgImgByCurrentUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3468EF95248D2C56002708DE /* MsgImgByCurrentUserTableViewCell.xib */; };
 		348879702483EC17009AE8D5 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3488796F2483EC17009AE8D5 /* MessageModel.swift */; };
 		34DE581E2478301800B5BB2C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DE581D2478301800B5BB2C /* UIColorExtension.swift */; };
 		34F27148247C009100B6FF62 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F27147247C009100B6FF62 /* UITextFieldExtension.swift */; };
@@ -81,6 +85,10 @@
 		3410946B248393FE00124038 /* MessageByOtherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageByOtherTableViewCell.xib; sourceTree = "<group>"; };
 		3448D4432482B0DB00608688 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		3448D4442482B0DB00608688 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		3468EF90248D2B73002708DE /* MsgImgByOtherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgImgByOtherTableViewCell.swift; sourceTree = "<group>"; };
+		3468EF91248D2B73002708DE /* MsgImgByOtherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MsgImgByOtherTableViewCell.xib; sourceTree = "<group>"; };
+		3468EF94248D2C56002708DE /* MsgImgByCurrentUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgImgByCurrentUserTableViewCell.swift; sourceTree = "<group>"; };
+		3468EF95248D2C56002708DE /* MsgImgByCurrentUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MsgImgByCurrentUserTableViewCell.xib; sourceTree = "<group>"; };
 		3488796F2483EC17009AE8D5 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		34DE581D2478301800B5BB2C /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		34F27147247C009100B6FF62 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
@@ -172,6 +180,10 @@
 				3410946B248393FE00124038 /* MessageByOtherTableViewCell.xib */,
 				ABD4027E248A50F9008ECFF8 /* MessageByCurrentUserTableViewCell.swift */,
 				ABD4027F248A50F9008ECFF8 /* MessageByCurrentUserTableViewCell.xib */,
+				3468EF90248D2B73002708DE /* MsgImgByOtherTableViewCell.swift */,
+				3468EF91248D2B73002708DE /* MsgImgByOtherTableViewCell.xib */,
+				3468EF94248D2C56002708DE /* MsgImgByCurrentUserTableViewCell.swift */,
+				3468EF95248D2C56002708DE /* MsgImgByCurrentUserTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -551,6 +563,7 @@
 				AB048FBA2477B6A500FE0832 /* LaunchScreen.storyboard in Resources */,
 				ABF5598A247E4FC600D8C88A /* UserOnlineCollectionViewCell.xib in Resources */,
 				AB048FB72477B6A500FE0832 /* Assets.xcassets in Resources */,
+				3468EF93248D2B73002708DE /* MsgImgByOtherTableViewCell.xib in Resources */,
 				AB170BE6247F6A9C00AECECC /* LoginResultsPopup.xib in Resources */,
 				AB47D8DC247CD40600751CB1 /* GoogleService-Info.plist in Resources */,
 				3410946D248393FE00124038 /* MessageByOtherTableViewCell.xib in Resources */,
@@ -559,6 +572,7 @@
 				3448D4462482B0DB00608688 /* ChatViewController.xib in Resources */,
 				AB388241247B93D1007823CE /* RegistrationResultsPopup.xib in Resources */,
 				AB048FB52477B6A200FE0832 /* Main.storyboard in Resources */,
+				3468EF97248D2C56002708DE /* MsgImgByCurrentUserTableViewCell.xib in Resources */,
 				ABF55992247E5BF100D8C88A /* ChatTableViewCell.xib in Resources */,
 				ABF55985247E4BEA00D8C88A /* ListChatViewController.xib in Resources */,
 				AB47D8DE247CD79F00751CB1 /* Intro.storyboard in Resources */,
@@ -703,9 +717,11 @@
 				AB47D8E5247CF0EB00751CB1 /* SplashViewController.swift in Sources */,
 				AB170C3524801C5100AECECC /* UserModel.swift in Sources */,
 				AB170BE9247F6DB200AECECC /* Contains.swift in Sources */,
+				3468EF92248D2B73002708DE /* MsgImgByOtherTableViewCell.swift in Sources */,
 				AB170C3C2480BEA000AECECC /* UILabelExtension.swift in Sources */,
 				34DE581E2478301800B5BB2C /* UIColorExtension.swift in Sources */,
 				ABF55989247E4FC600D8C88A /* UserOnlineCollectionViewCell.swift in Sources */,
+				3468EF96248D2C56002708DE /* MsgImgByCurrentUserTableViewCell.swift in Sources */,
 				AB048FEA2477BF6F00FE0832 /* NSObjectExtension.swift in Sources */,
 				348879702483EC17009AE8D5 /* MessageModel.swift in Sources */,
 				34F27148247C009100B6FF62 /* UITextFieldExtension.swift in Sources */,

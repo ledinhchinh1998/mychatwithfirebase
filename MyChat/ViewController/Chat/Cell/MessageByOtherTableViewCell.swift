@@ -15,6 +15,7 @@ class MessageByOtherTableViewCell: UITableViewCell {
     @IBOutlet weak var timeStampLbl: UILabel!
     @IBOutlet weak var containView: UIView!
     @IBOutlet weak var heightTimeStamp: NSLayoutConstraint!
+    @IBOutlet weak var avatarImg: UIImageView!
     
     //MARK: Property
     var handleReloadRow: ((CGFloat) -> Void)?
