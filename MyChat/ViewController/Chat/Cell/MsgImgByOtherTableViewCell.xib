@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yp0-Rq-pcn">
-                        <rect key="frame" x="248" y="37" width="130" height="130"/>
+                        <rect key="frame" x="248" y="42" width="130" height="130"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="yp0-Rq-pcn" secondAttribute="height" multiplier="1:1" id="VAi-1C-p4X"/>
                             <constraint firstAttribute="width" constant="130" id="alE-OS-pif"/>
@@ -31,8 +32,8 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g6q-rC-gwv">
-                        <rect key="frame" x="388" y="80" width="44" height="44"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-profile" translatesAutoresizingMaskIntoConstraints="NO" id="g6q-rC-gwv">
+                        <rect key="frame" x="388" y="85" width="44" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="FfW-BR-gps"/>
                             <constraint firstAttribute="width" constant="44" id="hev-Lz-Eoq"/>
@@ -48,8 +49,8 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="3h7-q7-ZhR"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -61,7 +62,7 @@
                     <constraint firstItem="QvY-aV-oe8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="dWv-de-kbA"/>
                     <constraint firstAttribute="bottom" secondItem="yp0-Rq-pcn" secondAttribute="bottom" constant="10" id="nI4-dD-ULY"/>
                     <constraint firstAttribute="trailing" secondItem="g6q-rC-gwv" secondAttribute="trailing" constant="10" id="vPj-gF-tGI"/>
-                    <constraint firstItem="yp0-Rq-pcn" firstAttribute="top" secondItem="QvY-aV-oe8" secondAttribute="bottom" constant="5" id="w1w-6q-KeF"/>
+                    <constraint firstItem="yp0-Rq-pcn" firstAttribute="top" secondItem="QvY-aV-oe8" secondAttribute="bottom" constant="10" id="w1w-6q-KeF"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -73,4 +74,7 @@
             <point key="canvasLocation" x="631.8840579710145" y="222.99107142857142"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ic-profile" width="16" height="16"/>
+    </resources>
 </document>

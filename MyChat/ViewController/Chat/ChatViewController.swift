@@ -18,6 +18,11 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var inputTextView: UITextView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var userNameTopBar: UILabel!
+    @IBOutlet weak var activeStatus: UILabel!
+    @IBOutlet weak var avtImgTopBar: UIImageView!
+    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var contentUserTopBar: UIView!
     
     //MARK: Property
     var listMessage = [MessageModel]()
@@ -56,7 +61,7 @@ class ChatViewController: UIViewController {
     
     //MARK: Config navigationController
     private func configNavigation() {
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     //MARK: Config
@@ -74,6 +79,9 @@ class ChatViewController: UIViewController {
     
     private func configTextView() {
         inputTextView.delegate = self
+        backBtn.leftImage(image: UIImage(named: "ic-back") ?? UIImage(), renderMode: .alwaysOriginal)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(resignTextView))
+        self.view.addGestureRecognizer(tapGesture)
     }
     
     //MARK: Function
@@ -81,6 +89,13 @@ class ChatViewController: UIViewController {
         SVProgressHUD.show()
         Contains.users.child(toId).observeSingleEvent(of: .value) { [unowned self] (snapshot) in
             self.receiver = UserModel(snapshot: snapshot)
+            if let url = URL(string: self.receiver?.avatarImgUrl ?? "") {
+                self.avtImgTopBar.sd_setImage(with: url, completed: nil)
+            }
+            
+            self.userNameTopBar.text = self.receiver?.userName
+            
+            
             SVProgressHUD.dismiss()
         }
     }
@@ -181,8 +196,17 @@ class ChatViewController: UIViewController {
         inputTextView.text = ""
     }
     
+    //MARK: Selector
+    @objc private func resignTextView() {
+        inputTextView.resignFirstResponder()
+    }
+    
     @IBAction func onclickAccessPhotoLibrary(_ sender: Any) {
         accessPhotoLibrary()
+    }
+    
+    @IBAction func onclickBack(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -215,18 +239,17 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
             }
         } else {
             /** Based on data hold on firebase, if image != nil, that is, the user is sending an image, thus loading the xid file MsgImgByOtherTableViewCell **/
+            let timeStamp = message.timeStamp ?? ""
+            let timeinterval: TimeInterval = (timeStamp as NSString).doubleValue
+            let dateFromServer = NSDate(timeIntervalSince1970:timeinterval)
+            let dateFormater: DateFormatter = DateFormatter()
+            dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
             if message.image == nil {
                 let cell = tableView.dequeueReusableCell(cell: MessageByOtherTableViewCell.self, for: indexPath) { (tableViewCell) in
                     tableViewCell.messageLbl.text = message.text
-                    if let timeStamp = message.timeStamp {
-                        let timeinterval: TimeInterval = (timeStamp as NSString).doubleValue
-                        let dateFromServer = NSDate(timeIntervalSince1970:timeinterval)
-                        let dateFormater: DateFormatter = DateFormatter()
-                        dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                        tableViewCell.timeStampLbl.text = String(dateFormater.string(from: dateFromServer as Date))
-                        if let url = URL(string: avtOfReceive) {
-                            tableViewCell.avatarImg?.sd_setImage(with: url, placeholderImage: UIImage(named: "ic-profile"), options: [], context: nil)
-                        }
+                    tableViewCell.timeStampLbl.text = String(dateFormater.string(from: dateFromServer as Date))
+                    if let url = URL(string: avtOfReceive) {
+                        tableViewCell.avatarImg?.sd_setImage(with: url, placeholderImage: UIImage(named: "ic-profile"), options: [], context: nil)
                     }
                 }
                 
@@ -240,6 +263,8 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
                     if let url = URL(string: avtOfReceive) {
                         tableViewCell.avtImg.sd_setImage(with: url, completed: nil)
                     }
+                    
+                    tableViewCell.timeStamp.text = String(dateFormater.string(from: dateFromServer as Date))
                 }
                 
                 return cell
@@ -289,8 +314,12 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
                         storageRef.downloadURL(completion: { (url, err) in
                             if let url = url,
                                 let child = self?.childRefMessage {
+                                let timeStamp = String(Date().timeIntervalSince1970)
                                 let messageRef = Contains.message.child(child).childByAutoId()
-                                let childUpdate = ["image": url.absoluteString]
+                                let childUpdate = [
+                                    "image": url.absoluteString,
+                                    "timeStamp": timeStamp
+                                ]
                                 messageRef.updateChildValues(childUpdate) { (err, ref) in
                                     if err == nil {
                                         
