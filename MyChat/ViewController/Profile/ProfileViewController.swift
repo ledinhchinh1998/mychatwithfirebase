@@ -26,6 +26,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var notificationCmtLbl: UILabel!
     @IBOutlet weak var editLbl: UILabel!
     @IBOutlet weak var containerStackView: UIView!
+    @IBOutlet weak var signOutLbl: UILabel!
     
     //MARK: Property
     lazy var currentUser: User? = {
@@ -33,6 +34,7 @@ class ProfileViewController: UIViewController {
     }()
     
     var user: UserModel?
+    var ultities = Ultities.shared
     
     //MARK: Recycle ViewController
     override func viewDidLoad() {
@@ -46,10 +48,12 @@ class ProfileViewController: UIViewController {
     
     //MARK: Config
     private func configLayout() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapAvatar))
-        avatarImg.addGestureRecognizer(tapGesture)
+        let tapAvatarGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapAvatar))
+        avatarImg.addGestureRecognizer(tapAvatarGesture)
         avatarImg.isUserInteractionEnabled = true
         containerStackView.addShadowCustom(CGSize(width: 0.0, height: 6.0), 10, 0.5)
+        let tapSignOutGesture = UITapGestureRecognizer(target: self, action: #selector(handleSignOut))
+        signOutLbl.addGestureRecognizer(tapSignOutGesture)
     }
     
     private func configProfile() {
@@ -117,6 +121,15 @@ class ProfileViewController: UIViewController {
         alert.addAction(editAvatarAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true)
+    }
+    
+    @objc private func handleSignOut() {
+        self.push(storyBoard: "Main", type: LoginViewController.self) { (viewController) in
+            if ultities.isKeyPresentInUserDefaults(key: "User") {
+                let prefs = UserDefaults.standard
+                prefs.removeObject(forKey: "User")
+            }
+        }
     }
     
     //MARK: Action

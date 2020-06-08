@@ -79,10 +79,10 @@ class ListChatViewController: UIViewController {
     
     //MARK: Function
     private func fetchUser() {
-        users.removeAll()
         SVProgressHUD.show()
         Contains.users.observe(.value, with: { [weak self] (snapshot) in
             var users = [UserModel]()
+            self?.users.removeAll()
             for child in snapshot.children {
                 if let child = child as? DataSnapshot {
                     if child.key != self?.currentUser?.uid {
@@ -95,7 +95,7 @@ class ListChatViewController: UIViewController {
                 }
             }
             
-            self?.users.removeAll()
+            
             self?.users.append(contentsOf: users)
             self?.collectionView.reloadData()
             SVProgressHUD.dismiss()

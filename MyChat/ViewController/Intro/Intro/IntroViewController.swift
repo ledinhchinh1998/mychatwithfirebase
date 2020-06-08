@@ -16,6 +16,7 @@ class IntroViewController: UIViewController {
     
     //MARK: Property
     let rootViewController = LoginViewController()
+    let ultities = Ultities.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +26,13 @@ class IntroViewController: UIViewController {
     //MARK: Action
     @IBAction func onclickLogin(_ sender: Any) {
         self.push(storyBoard: "Main", type: LoginViewController.self) { (destinationVC) in
-            
+        
         }
     }
     
     @IBAction func onclickRegister(_ sender: Any) {
         self.push(storyBoard: "Main", type: LoginViewController.self) { (destinationVC) in
-            
+        
         }
     }
 }

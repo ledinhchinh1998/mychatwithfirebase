@@ -24,4 +24,8 @@ class Ultities {
         let string = String(dateFormater.string(from: dateFromServer as Date))
         return string
     }
+    
+    func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
+    }
 }

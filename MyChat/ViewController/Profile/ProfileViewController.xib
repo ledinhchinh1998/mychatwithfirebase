@@ -21,6 +21,7 @@
                 <outlet property="notificationCmtLbl" destination="m7t-RB-AvH" id="Qph-UJ-iRY"/>
                 <outlet property="notificationLbl" destination="tbx-cp-rqh" id="tTg-9C-tdW"/>
                 <outlet property="photosLbl" destination="sg4-am-qOn" id="o9j-7m-gdU"/>
+                <outlet property="signOutLbl" destination="2bS-az-NLt" id="WvZ-xb-7eN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,7 +41,7 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-profile" translatesAutoresizingMaskIntoConstraints="NO" id="pJ5-SA-1eZ">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="Vu4-JT-Igo"/>
                                                 <constraint firstAttribute="height" constant="100" id="zPf-4s-6qc"/>
@@ -92,11 +93,19 @@
                             <rect key="frame" x="16" y="16" width="16" height="22"/>
                             <state key="normal" image="settings"/>
                         </button>
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bS-az-NLt">
+                            <rect key="frame" x="328" y="16" width="70" height="21.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.91980725526809692" green="0.66464319650664583" blue="0.64966594562999502" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstItem="2di-6B-ecC" firstAttribute="top" secondItem="DL1-Mb-KLY" secondAttribute="top" constant="16" id="Bih-VW-9Cr"/>
+                        <constraint firstAttribute="trailing" secondItem="2bS-az-NLt" secondAttribute="trailing" constant="16" id="OYJ-Ga-zCv"/>
                         <constraint firstItem="dxi-dk-pUZ" firstAttribute="centerX" secondItem="DL1-Mb-KLY" secondAttribute="centerX" id="j2P-w0-Gnk"/>
+                        <constraint firstItem="2bS-az-NLt" firstAttribute="top" secondItem="DL1-Mb-KLY" secondAttribute="top" constant="16" id="qHg-3c-hJl"/>
                         <constraint firstItem="dxi-dk-pUZ" firstAttribute="centerY" secondItem="DL1-Mb-KLY" secondAttribute="centerY" id="rFx-zT-CsO"/>
                         <constraint firstItem="2di-6B-ecC" firstAttribute="leading" secondItem="DL1-Mb-KLY" secondAttribute="leading" constant="16" id="trm-uz-AlP"/>
                     </constraints>
