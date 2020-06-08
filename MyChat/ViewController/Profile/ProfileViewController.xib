@@ -38,8 +38,9 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GtJ-pn-BU6">
                                     <rect key="frame" x="29" y="0.0" width="100" height="134"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-people" translatesAutoresizingMaskIntoConstraints="NO" id="pJ5-SA-1eZ">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-profile" translatesAutoresizingMaskIntoConstraints="NO" id="pJ5-SA-1eZ">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="Vu4-JT-Igo"/>
                                                 <constraint firstAttribute="height" constant="100" id="zPf-4s-6qc"/>
@@ -50,7 +51,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selena" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvJ-4I-hve">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selena" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvJ-4I-hve">
                                             <rect key="frame" x="0.0" y="110" width="100" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -321,7 +322,7 @@
     <resources>
         <image name="comment" width="16" height="16"/>
         <image name="heart" width="16" height="16"/>
-        <image name="ic-people" width="32" height="32"/>
+        <image name="ic-profile" width="16" height="16"/>
         <image name="next" width="16" height="16"/>
         <image name="pencil" width="16" height="16"/>
         <image name="picture" width="16" height="16"/>

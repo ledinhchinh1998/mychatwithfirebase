@@ -23,7 +23,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VZo-h7-erQ">
                                 <rect key="frame" x="0.0" y="5" width="101" height="89"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-people" translatesAutoresizingMaskIntoConstraints="NO" id="Zk7-nQ-cLl">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-profile" translatesAutoresizingMaskIntoConstraints="NO" id="Zk7-nQ-cLl">
                                         <rect key="frame" x="25.5" y="0.0" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="4sV-9Y-Fsr"/>
@@ -35,8 +35,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ph-hl-Hwn">
-                                        <rect key="frame" x="33.5" y="55" width="34.5" height="34"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Userfasdfasdfa" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ph-hl-Hwn">
+                                        <rect key="frame" x="2" y="55" width="97.5" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -70,6 +70,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="ic-people" width="32" height="32"/>
+        <image name="ic-profile" width="16" height="16"/>
     </resources>
 </document>

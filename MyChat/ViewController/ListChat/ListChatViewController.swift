@@ -17,7 +17,7 @@ class ListChatViewController: UIViewController {
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var leftLblBar: UILabel!
+    @IBOutlet weak var topAvtImg: UIImageView!
     
     //MARK: Property
     lazy var currentUser: User? = {
@@ -39,11 +39,12 @@ class ListChatViewController: UIViewController {
         configTableView()
         configCollectionView()
         fetchMessage()
+        fetchUser()
+        configNavigation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        configNavigation()
-        fetchUser()
+        
     }
     
     //MARK: Config
@@ -66,16 +67,19 @@ class ListChatViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         Contains.users.child(currentUser?.uid ?? "").observeSingleEvent(of: .value) { [unowned self] (snapshot) in
             let currentUser = UserModel(snapshot: snapshot)
-            self.leftLblBar.text = currentUser?.userName
+            if let url = URL(string: currentUser?.avatarImgUrl ?? "") {
+                self.topAvtImg.sd_setImage(with: url, completed: nil)
+            }
         }
     }
     
     private func configView() {
-
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onclickProfile))
     }
     
     //MARK: Function
     private func fetchUser() {
+        users.removeAll()
         SVProgressHUD.show()
         Contains.users.observe(.value, with: { [weak self] (snapshot) in
             var users = [UserModel]()
@@ -108,6 +112,7 @@ class ListChatViewController: UIViewController {
                 if let child = child as? DataSnapshot {
                     Contains.users.child(child.key).observeSingleEvent(of: .value) { [weak self] (snapshot) in /** Iterating user **/
                         if let user = UserModel(snapshot: snapshot) {
+                            user.id = child.key
                             self?.chatsHistory.append(user)
                         }
                         
@@ -122,6 +127,11 @@ class ListChatViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    //MARK: Selector
+    @objc private func onclickProfile() {
+        
     }
 }
 
@@ -163,8 +173,8 @@ extension ListChatViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let user = self.users[indexPath.row]
         let cell = collectionView.dequeueReuseableCell(cell: UserOnlineCollectionViewCell.self, for: indexPath) { (collectionViewCell) in
-            let user = self.users[indexPath.row]
             collectionViewCell.nameLbl.text = user.userName ?? ""
             if let avatarImgUrl = URL(string: user.avatarImgUrl ?? "") {
                 collectionViewCell.avatarImg?.sd_setImage(with: avatarImgUrl, placeholderImage: UIImage(named: "ic-people"), options: [], completed: nil)

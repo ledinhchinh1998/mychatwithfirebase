@@ -189,7 +189,6 @@ class ChatViewController: UIViewController {
     
     //MARK: Action
     @IBAction func handleSendMessage(_ sender: Any) {
-        
         if let text = inputTextView.text {
             let values = [
                 "text": text,
@@ -324,13 +323,16 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
                 storageRef.putData(uploadData, metadata: nil) { [weak self] (metaData, err) in
                     if err == nil {
                         storageRef.downloadURL(completion: { (url, err) in
+                            SVProgressHUD.dismiss()
                             if let url = url,
                                 let child = self?.childRefMessage {
                                 let timeStamp = String(Date().timeIntervalSince1970)
                                 let messageRef = Contains.message.child(child).childByAutoId()
+                                let sender = self?.fromId
                                 let childUpdate = [
                                     "image": url.absoluteString,
-                                    "timeStamp": timeStamp
+                                    "timeStamp": timeStamp,
+                                    "sender": sender
                                 ]
                                 messageRef.updateChildValues(childUpdate) { (err, ref) in
                                     if err == nil {
