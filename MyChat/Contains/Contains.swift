@@ -14,4 +14,5 @@ struct Contains {
     static let reference = Database.database().reference(withPath: "app-chat")
     static let users = Database.database().reference(withPath: "app-chat").child("users")
     static let message = Database.database().reference(withPath: "app-chat").child("messages")
+    static let historyChat = Database.database().reference(withPath: "app-chat").child("history-chat")
 }

@@ -35,6 +35,7 @@ class UserModel: NSObject {
             self.password = value["password"] as? String
             self.avatarImgUrl = value["avatarImgUrl"] as? String
             self.userName = value["userName"] as? String
+            self.id = value["id"] as? String
         }
     }
 }

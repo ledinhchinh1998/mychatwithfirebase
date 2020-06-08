@@ -24,23 +24,26 @@ class ListChatViewController: UIViewController {
         return Auth.auth().currentUser
     }()
     
+    lazy var currentUserUID: String = {
+        return (currentUser?.uid ?? "")
+    }()
+    
     var users = [UserModel]()
     var chatsHistory = [UserModel]()
-    var messages = [MessageModel]()
-    let ref = Database.database().reference(withPath: "app-chat")
-    
+    var lastMessages = [LastMessageModel]()
+    var util = Ultities.shared
+        
     //MARK: Recycle ViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
         configCollectionView()
-        
+        fetchMessage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         configNavigation()
         fetchUser()
-        fetchMessage()
     }
     
     //MARK: Config
@@ -74,11 +77,11 @@ class ListChatViewController: UIViewController {
     //MARK: Function
     private func fetchUser() {
         SVProgressHUD.show()
-        ref.child("users").observe(.value, with: { [unowned self] (snapshot) in
+        Contains.users.observe(.value, with: { [weak self] (snapshot) in
             var users = [UserModel]()
             for child in snapshot.children {
                 if let child = child as? DataSnapshot {
-                    if child.key != self.currentUser?.uid {
+                    if child.key != self?.currentUser?.uid {
                         let user = UserModel(snapshot: child)
                         user?.id = child.key
                         if let user = user {
@@ -88,9 +91,9 @@ class ListChatViewController: UIViewController {
                 }
             }
             
-            self.users.removeAll()
-            self.users.append(contentsOf: users)
-            self.collectionView.reloadData()
+            self?.users.removeAll()
+            self?.users.append(contentsOf: users)
+            self?.collectionView.reloadData()
             SVProgressHUD.dismiss()
         }) { (cancel) in
             SVProgressHUD.dismiss()
@@ -98,21 +101,26 @@ class ListChatViewController: UIViewController {
     }
     
     private func fetchMessage() {
-        SVProgressHUD.show()
-        Contains.message.observe(.value) { (snapshot) in
-            self.chatsHistory.removeAll()
+        Contains.historyChat.child(currentUserUID).observe(.value) { [weak self] (snapshot) in /** Iterating historyChat **/
+            self?.chatsHistory.removeAll()
+            self?.lastMessages.removeAll()
             for child in snapshot.children {
                 if let child = child as? DataSnapshot {
-                    Contains.users.child(child.key).observeSingleEvent(of: .value) { (snapshot) in
+                    Contains.users.child(child.key).observeSingleEvent(of: .value) { [weak self] (snapshot) in /** Iterating user **/
                         if let user = UserModel(snapshot: snapshot) {
-                            self.chatsHistory.append(user)
+                            self?.chatsHistory.append(user)
                         }
+                        
+                        self?.tableView.reloadData()
                     }
+                    
+                    if let lastMessage = LastMessageModel(snapshot: child) {
+                        self?.lastMessages.append(lastMessage)
+                    }
+                    
+                    self?.tableView.reloadData()
                 }
             }
-            
-            SVProgressHUD.dismiss()
-            self.tableView.reloadData()
         }
     }
 }
@@ -124,34 +132,25 @@ extension ListChatViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let user = chatsHistory[indexPath.row]
+        let lastMessage = lastMessages[indexPath.row]
         let cell = tableView.dequeueReusableCell(cell: ChatTableViewCell.self, for: indexPath) { (tableViewCell) in
-            let chat = chatsHistory[indexPath.row]
-            DispatchQueue.main.async {
-                if let url = URL(string: chat.avatarImgUrl ?? "") {
-                    do {
-                        let data = try Data(contentsOf: url)
-                        tableViewCell.avtImage.image = UIImage(data: data)
-                        tableViewCell.nameUserLbl.text = chat.userName
-                        let timeStamp = self.messages[indexPath.row].timeStamp
-                        if let double = Double(timeStamp ?? "") {
-                            let timeStamp = NSDate(timeIntervalSince1970: double)
-                            tableViewCell.timeStampLbl.text = timeStamp.description
-                        }
-                    } catch {
-                        print("init data is failed")
-                    }
-                }
+            tableViewCell.nameUserLbl.text = user.userName
+            if let url = URL(string: user.avatarImgUrl ?? "") {
+                tableViewCell.avtImage.sd_setImage(with: url, completed: nil)
             }
-        
+            
+            tableViewCell.timeStampLbl.text = util.timeIntervalToDateString(withInterval: lastMessage.timeStamp ?? "")
+            tableViewCell.lastMessageLbl.text = lastMessage.lastMessage
+            
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let user = chatsHistory[indexPath.row]
         self.push(storyBoard: nil, type: ChatViewController.self) { (destinationVC) in
-            
+            destinationVC?.user = self.chatsHistory[indexPath.row]
         }
     }
     

@@ -49,6 +49,9 @@
 		ABD40281248A50F9008ECFF8 /* MessageByCurrentUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABD4027F248A50F9008ECFF8 /* MessageByCurrentUserTableViewCell.xib */; };
 		ABD40287248E0705008ECFF8 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD40286248E0705008ECFF8 /* UIButtonExtension.swift */; };
 		ABD40289248E0951008ECFF8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD40288248E0951008ECFF8 /* ChatViewController.swift */; };
+		ABD4028B248E1DC3008ECFF8 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4028A248E1DC3008ECFF8 /* StringExtension.swift */; };
+		ABD4028D248E35C3008ECFF8 /* LastMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4028C248E35C3008ECFF8 /* LastMessageModel.swift */; };
+		ABD40290248E36C9008ECFF8 /* Ultities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4028F248E36C9008ECFF8 /* Ultities.swift */; };
 		ABF5597E247E434900D8C88A /* MainTabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5597D247E434900D8C88A /* MainTabbar.storyboard */; };
 		ABF55980247E456900D8C88A /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5597F247E456900D8C88A /* MainTabbarController.swift */; };
 		ABF55984247E4BEA00D8C88A /* ListChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF55982247E4BEA00D8C88A /* ListChatViewController.swift */; };
@@ -131,6 +134,9 @@
 		ABD4027F248A50F9008ECFF8 /* MessageByCurrentUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageByCurrentUserTableViewCell.xib; sourceTree = "<group>"; };
 		ABD40286248E0705008ECFF8 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		ABD40288248E0951008ECFF8 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		ABD4028A248E1DC3008ECFF8 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		ABD4028C248E35C3008ECFF8 /* LastMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastMessageModel.swift; sourceTree = "<group>"; };
+		ABD4028F248E36C9008ECFF8 /* Ultities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ultities.swift; sourceTree = "<group>"; };
 		ABF5597D247E434900D8C88A /* MainTabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabbar.storyboard; sourceTree = "<group>"; };
 		ABF5597F247E456900D8C88A /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		ABF55982247E4BEA00D8C88A /* ListChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChatViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +281,7 @@
 				AB388248247BC3E7007823CE /* Model */,
 				AB048FE12477BE0600FE0832 /* ViewController */,
 				AB170BE7247F6D9700AECECC /* Contains */,
+				ABD4028E248E36B7008ECFF8 /* Utilties */,
 				AB048FE82477BF5F00FE0832 /* Extension */,
 				34DE581A24782CC900B5BB2C /* Application */,
 				34DE581B24782CDF00B5BB2C /* Resource */,
@@ -345,6 +352,7 @@
 				ABF5598D247E5A0B00D8C88A /* UITableViewExtension.swift */,
 				AB170C3B2480BEA000AECECC /* UILabelExtension.swift */,
 				ABD40286248E0705008ECFF8 /* UIButtonExtension.swift */,
+				ABD4028A248E1DC3008ECFF8 /* StringExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -380,6 +388,7 @@
 			children = (
 				AB170C3424801C5100AECECC /* UserModel.swift */,
 				3488796F2483EC17009AE8D5 /* MessageModel.swift */,
+				ABD4028C248E35C3008ECFF8 /* LastMessageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -409,6 +418,14 @@
 				AB47D8DF247CD7B800751CB1 /* IntroViewController.swift */,
 			);
 			path = Intro;
+			sourceTree = "<group>";
+		};
+		ABD4028E248E36B7008ECFF8 /* Utilties */ = {
+			isa = PBXGroup;
+			children = (
+				ABD4028F248E36C9008ECFF8 /* Ultities.swift */,
+			);
+			path = Utilties;
 			sourceTree = "<group>";
 		};
 		ABF5597C247E42D700D8C88A /* MainTabbar */ = {
@@ -711,6 +728,7 @@
 				AB048FE72477BF4100FE0832 /* RegisterViewController.swift in Sources */,
 				ABF55984247E4BEA00D8C88A /* ListChatViewController.swift in Sources */,
 				ABF55980247E456900D8C88A /* MainTabbarController.swift in Sources */,
+				ABD4028B248E1DC3008ECFF8 /* StringExtension.swift in Sources */,
 				ABF5598E247E5A0B00D8C88A /* UITableViewExtension.swift in Sources */,
 				ABF5598C247E50F300D8C88A /* UICollectionViewExtension.swift in Sources */,
 				AB048FAE2477B6A200FE0832 /* AppDelegate.swift in Sources */,
@@ -718,6 +736,8 @@
 				3410946C248393FE00124038 /* MessageByOtherTableViewCell.swift in Sources */,
 				AB170BE4247F6A8C00AECECC /* LoginResultsPopup.swift in Sources */,
 				AB47D8E5247CF0EB00751CB1 /* SplashViewController.swift in Sources */,
+				ABD40290248E36C9008ECFF8 /* Ultities.swift in Sources */,
+				ABD4028D248E35C3008ECFF8 /* LastMessageModel.swift in Sources */,
 				AB170C3524801C5100AECECC /* UserModel.swift in Sources */,
 				AB170BE9247F6DB200AECECC /* Contains.swift in Sources */,
 				3468EF92248D2B73002708DE /* MsgImgByOtherTableViewCell.swift in Sources */,

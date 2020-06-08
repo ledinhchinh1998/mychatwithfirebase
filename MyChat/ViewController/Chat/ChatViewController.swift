@@ -49,6 +49,7 @@ class ChatViewController: UIViewController {
     
     var receiver: UserModel?
     var childRefMessage: String?
+    let timeStamp = String(Date().timeIntervalSince1970)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,13 +88,13 @@ class ChatViewController: UIViewController {
     //MARK: Function
     private func fetchUser() {
         SVProgressHUD.show()
-        Contains.users.child(toId).observeSingleEvent(of: .value) { [unowned self] (snapshot) in
-            self.receiver = UserModel(snapshot: snapshot)
-            if let url = URL(string: self.receiver?.avatarImgUrl ?? "") {
-                self.avtImgTopBar.sd_setImage(with: url, completed: nil)
+        Contains.users.child(toId).observeSingleEvent(of: .value) { [weak self] (snapshot) in
+            self?.receiver = UserModel(snapshot: snapshot)
+            if let url = URL(string: self?.receiver?.avatarImgUrl ?? "") {
+                self?.avtImgTopBar.sd_setImage(with: url, completed: nil)
             }
             
-            self.userNameTopBar.text = self.receiver?.userName
+            self?.userNameTopBar.text = self?.receiver?.userName
             
             
             SVProgressHUD.dismiss()
@@ -121,14 +122,14 @@ class ChatViewController: UIViewController {
     private func checkRefExist() {
         SVProgressHUD.show()
         var childRef = fromId + "-" + toId
-        Contains.message.child(childRef).observeSingleEvent(of: .value) { [unowned self] (snapshot) in
+        Contains.message.child(childRef).observeSingleEvent(of: .value) { [weak self] (snapshot) in
             if snapshot.exists() {
-                self.fetchMessages(childRef: childRef)
-                self.childRefMessage = childRef
+                self?.fetchMessages(childRef: childRef)
+                self?.childRefMessage = childRef
             } else {
-                childRef = self.toId + "-" + self.fromId
-                self.fetchMessages(childRef: childRef)
-                self.childRefMessage = childRef
+                childRef = self?.toId ?? "" + "-" + (self?.fromId ?? "")
+                self?.fetchMessages(childRef: childRef)
+                self?.childRefMessage = childRef
             }
             
             SVProgressHUD.dismiss()
@@ -176,9 +177,19 @@ class ChatViewController: UIViewController {
         self.present(imagePickerController, animated: true, completion: nil)
     }
     
+    private func updateHistoryChat() {
+        let lastMessage = listMessage.last?.text
+        let values = [
+            "lastMessage": lastMessage,
+            "timeStamp": timeStamp
+        ]
+        
+        Contains.historyChat.child(fromId).child(toId).updateChildValues(values as [AnyHashable : Any])
+    }
+    
     //MARK: Action
     @IBAction func handleSendMessage(_ sender: Any) {
-        let timeStamp = String(Date().timeIntervalSince1970)
+        
         if let text = inputTextView.text {
             let values = [
                 "text": text,
@@ -206,6 +217,7 @@ class ChatViewController: UIViewController {
     }
     
     @IBAction func onclickBack(_ sender: Any) {
+        updateHistoryChat()
         navigationController?.popViewController(animated: true)
     }
 }
