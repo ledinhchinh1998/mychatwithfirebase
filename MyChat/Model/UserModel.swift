@@ -17,6 +17,10 @@ class UserModel: NSObject {
     var userName: String?
     var password: String?
     var id: String?
+    var sex: String?
+    var birthDay: String?
+    var phoneNumber: String?
+    var bio: String?
     
     init(_ firstName: String?,_ lastName: String?,_ userName: String?,_ password: String?,_ email: String?, id: String?) {
         self.firstName = firstName
@@ -36,6 +40,11 @@ class UserModel: NSObject {
             self.avatarImgUrl = value["avatarImgUrl"] as? String
             self.userName = value["userName"] as? String
             self.id = value["id"] as? String
+            self.sex = value["sex"] as? String
+            self.birthDay = value["birthDay"] as? String
+            self.password = value["password"] as? String
+            self.phoneNumber = value["phoneNumber"] as? String
+            self.bio = value["bio"] as? String
         }
     }
 }

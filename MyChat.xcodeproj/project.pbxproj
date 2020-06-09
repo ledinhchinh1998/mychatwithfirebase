@@ -52,6 +52,10 @@
 		ABD4028B248E1DC3008ECFF8 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4028A248E1DC3008ECFF8 /* StringExtension.swift */; };
 		ABD4028D248E35C3008ECFF8 /* LastMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4028C248E35C3008ECFF8 /* LastMessageModel.swift */; };
 		ABD40290248E36C9008ECFF8 /* Ultities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4028F248E36C9008ECFF8 /* Ultities.swift */; };
+		ABEF5F1B248F2B540024492C /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF5F19248F2B530024492C /* ProfileDetailViewController.swift */; };
+		ABEF5F1C248F2B540024492C /* ProfileDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABEF5F1A248F2B530024492C /* ProfileDetailViewController.xib */; };
+		ABEF5F20248F2C870024492C /* ProfileDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEF5F1E248F2C870024492C /* ProfileDetailTableViewCell.swift */; };
+		ABEF5F21248F2C870024492C /* ProfileDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABEF5F1F248F2C870024492C /* ProfileDetailTableViewCell.xib */; };
 		ABF5597E247E434900D8C88A /* MainTabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF5597D247E434900D8C88A /* MainTabbar.storyboard */; };
 		ABF55980247E456900D8C88A /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF5597F247E456900D8C88A /* MainTabbarController.swift */; };
 		ABF55984247E4BEA00D8C88A /* ListChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF55982247E4BEA00D8C88A /* ListChatViewController.swift */; };
@@ -137,6 +141,10 @@
 		ABD4028A248E1DC3008ECFF8 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		ABD4028C248E35C3008ECFF8 /* LastMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastMessageModel.swift; sourceTree = "<group>"; };
 		ABD4028F248E36C9008ECFF8 /* Ultities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ultities.swift; sourceTree = "<group>"; };
+		ABEF5F19248F2B530024492C /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
+		ABEF5F1A248F2B530024492C /* ProfileDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileDetailViewController.xib; sourceTree = "<group>"; };
+		ABEF5F1E248F2C870024492C /* ProfileDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailTableViewCell.swift; sourceTree = "<group>"; };
+		ABEF5F1F248F2C870024492C /* ProfileDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileDetailTableViewCell.xib; sourceTree = "<group>"; };
 		ABF5597D247E434900D8C88A /* MainTabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabbar.storyboard; sourceTree = "<group>"; };
 		ABF5597F247E456900D8C88A /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		ABF55982247E4BEA00D8C88A /* ListChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChatViewController.swift; sourceTree = "<group>"; };
@@ -312,6 +320,7 @@
 		AB048FE12477BE0600FE0832 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				ABEF5F18248F2B1A0024492C /* ProfileDetail */,
 				3448D4422482B0C100608688 /* Chat */,
 				AB170C362480B29C00AECECC /* Profile */,
 				ABF55981247E4BD200D8C88A /* ListChat */,
@@ -426,6 +435,25 @@
 				ABD4028F248E36C9008ECFF8 /* Ultities.swift */,
 			);
 			path = Utilties;
+			sourceTree = "<group>";
+		};
+		ABEF5F18248F2B1A0024492C /* ProfileDetail */ = {
+			isa = PBXGroup;
+			children = (
+				ABEF5F1D248F2C6D0024492C /* Cell */,
+				ABEF5F19248F2B530024492C /* ProfileDetailViewController.swift */,
+				ABEF5F1A248F2B530024492C /* ProfileDetailViewController.xib */,
+			);
+			path = ProfileDetail;
+			sourceTree = "<group>";
+		};
+		ABEF5F1D248F2C6D0024492C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				ABEF5F1E248F2C870024492C /* ProfileDetailTableViewCell.swift */,
+				ABEF5F1F248F2C870024492C /* ProfileDetailTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		ABF5597C247E42D700D8C88A /* MainTabbar */ = {
@@ -597,6 +625,8 @@
 				ABF55985247E4BEA00D8C88A /* ListChatViewController.xib in Resources */,
 				AB47D8DE247CD79F00751CB1 /* Intro.storyboard in Resources */,
 				ABD40281248A50F9008ECFF8 /* MessageByCurrentUserTableViewCell.xib in Resources */,
+				ABEF5F1C248F2B540024492C /* ProfileDetailViewController.xib in Resources */,
+				ABEF5F21248F2C870024492C /* ProfileDetailTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,7 +758,9 @@
 				AB048FE72477BF4100FE0832 /* RegisterViewController.swift in Sources */,
 				ABF55984247E4BEA00D8C88A /* ListChatViewController.swift in Sources */,
 				ABF55980247E456900D8C88A /* MainTabbarController.swift in Sources */,
+				ABEF5F20248F2C870024492C /* ProfileDetailTableViewCell.swift in Sources */,
 				ABD4028B248E1DC3008ECFF8 /* StringExtension.swift in Sources */,
+				ABEF5F1B248F2B540024492C /* ProfileDetailViewController.swift in Sources */,
 				ABF5598E247E5A0B00D8C88A /* UITableViewExtension.swift in Sources */,
 				ABF5598C247E50F300D8C88A /* UICollectionViewExtension.swift in Sources */,
 				AB048FAE2477B6A200FE0832 /* AppDelegate.swift in Sources */,

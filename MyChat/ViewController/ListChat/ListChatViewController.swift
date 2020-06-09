@@ -74,7 +74,7 @@ class ListChatViewController: UIViewController {
     }
     
     private func configView() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onclickProfile))
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onclickProfile))
     }
     
     //MARK: Function

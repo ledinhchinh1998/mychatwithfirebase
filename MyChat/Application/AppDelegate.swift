@@ -14,12 +14,24 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    var currentUser: UserModel?
+    
+    func fetchCurrentUser() {
+        if let id = Auth.auth().currentUser?.uid {
+            Contains.users.child(id).observeSingleEvent(of: .value) { [weak self] (snapshot) in
+                let user = UserModel(snapshot: snapshot)
+                self?.currentUser = user
+            }
+        }
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         window = UIWindow(frame: UIScreen.main.bounds)
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = false
+        fetchCurrentUser()
         return true
     }
 

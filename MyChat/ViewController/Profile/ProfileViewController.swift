@@ -124,10 +124,16 @@ class ProfileViewController: UIViewController {
     }
     
     @objc private func handleSignOut() {
+        let value = [currentUser?.uid: "offline"]
+        Contains.statusUser.updateChildValues(value)
+        self.push(storyBoard: "MainTabbar", type: MainTabbarController.self) { _ in
+            
+        }
         self.push(storyBoard: "Main", type: LoginViewController.self) { (viewController) in
             if ultities.isKeyPresentInUserDefaults(key: "User") {
                 let prefs = UserDefaults.standard
                 prefs.removeObject(forKey: "User")
+                
             }
         }
     }
@@ -146,7 +152,9 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func onclickEdit(_ sender: Any) {
-        
+        self.push(storyBoard: nil, type: ProfileDetailViewController.self) { (destinationVC) in
+            
+        }
     }
 }
 

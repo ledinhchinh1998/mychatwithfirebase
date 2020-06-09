@@ -120,6 +120,9 @@ class LoginViewController: UIViewController {
                         } catch {
                             print("Save user default is failed")
                         }
+                        
+                        let value = [userModel.uid: "online"]
+                        Contains.statusUser.updateChildValues(value)
                     }
                     
                     self.push(storyBoard: "MainTabbar", type: MainTabbarController.self) { (destinationVC) in

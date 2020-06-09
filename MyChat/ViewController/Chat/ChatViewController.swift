@@ -31,21 +31,21 @@ class ChatViewController: UIViewController {
         return Auth.auth().currentUser
     }()
     
-    var toId: String {
+    lazy var toId: String = {
         if let id = user?.id {
             return id
         } else {
             return ""
         }
-    }
+    }()
     
-    var fromId: String {
+    lazy var fromId: String = {
         if let id = currentUser?.uid {
             return id
         } else {
             return ""
         }
-    }
+    }()
     
     var receiver: UserModel?
     var childRefMessage: String?
@@ -58,6 +58,7 @@ class ChatViewController: UIViewController {
         configTextView()
         fetchUser()
         checkRefExist()
+        checkStatusUser()
     }
     
     //MARK: Config navigationController
@@ -95,10 +96,14 @@ class ChatViewController: UIViewController {
             }
             
             self?.userNameTopBar.text = self?.receiver?.userName
-            
-            
             SVProgressHUD.dismiss()
         }
+    }
+    
+    private func checkStatusUser() {
+        Contains.statusUser.child(toId).observeSingleEvent(of: .value, with: { [weak self] (snapshot) in
+            self?.activeStatus.text = snapshot.value as? String
+        })
     }
     
     private func fetchMessages(childRef: String) {
@@ -122,14 +127,14 @@ class ChatViewController: UIViewController {
     private func checkRefExist() {
         SVProgressHUD.show()
         var childRef = fromId + "-" + toId
-        Contains.message.child(childRef).observeSingleEvent(of: .value) { [weak self] (snapshot) in
+        Contains.message.child(childRef).observeSingleEvent(of: .value) { [unowned self] (snapshot) in
             if snapshot.exists() {
-                self?.fetchMessages(childRef: childRef)
-                self?.childRefMessage = childRef
+                self.fetchMessages(childRef: childRef)
+                self.childRefMessage = childRef
             } else {
-                childRef = self?.toId ?? "" + "-" + (self?.fromId ?? "")
-                self?.fetchMessages(childRef: childRef)
-                self?.childRefMessage = childRef
+                childRef = self.toId + "-" + self.fromId
+                self.fetchMessages(childRef: childRef)
+                self.childRefMessage = childRef
             }
             
             SVProgressHUD.dismiss()
@@ -178,13 +183,15 @@ class ChatViewController: UIViewController {
     }
     
     private func updateHistoryChat() {
-        let lastMessage = listMessage.last?.text
-        let values = [
-            "lastMessage": lastMessage,
-            "timeStamp": timeStamp
-        ]
-        
-        Contains.historyChat.child(fromId).child(toId).updateChildValues(values as [AnyHashable : Any])
+        if listMessage.count != 0 {
+            let lastMessage = listMessage.last?.text
+            let values = [
+                "lastMessage": lastMessage,
+                "timeStamp": timeStamp
+            ]
+            
+            Contains.historyChat.child(fromId).child(toId).updateChildValues(values as [AnyHashable : Any])
+        }
     }
     
     //MARK: Action

@@ -39,8 +39,12 @@ class SplashViewController: UIViewController {
                     Contains.users.child(user.uid).observe(.value) { (snapshot) in
                         let currentUser = UserModel(snapshot: snapshot)
                         Auth.auth().signIn(withEmail: currentUser?.email ?? "", password: currentUser?.password ?? "") { (result, err) in
-                            self.push(storyBoard: "MainTabbar", type: MainTabbarController.self) { _ in
-
+                            if err == nil {
+                                let value = [result?.user.uid: "online"]
+                                Contains.statusUser.updateChildValues(value)
+                                self.push(storyBoard: "MainTabbar", type: MainTabbarController.self) { _ in
+                                    
+                                }
                             }
                         }
                     }
