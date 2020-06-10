@@ -70,6 +70,11 @@ class NewFeedViewController: UIViewController {
         tabBarController?.selectedIndex = 1
     }
     
+    @IBAction func onclickCreateNewFeed(_ sender: Any) {
+        self.push(storyBoard: nil, type: CreateNewFeedViewController.self) { (destinationVC) in
+            
+        }
+    }
 }
 
 //MARK: UItableView Delegate & Datasource

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		340521EB249126F400541358 /* NewFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340521E9249126F400541358 /* NewFeedTableViewCell.swift */; };
 		340521EC249126F400541358 /* NewFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340521EA249126F400541358 /* NewFeedTableViewCell.xib */; };
+		340521F02491386200541358 /* CreateNewFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340521EE2491386200541358 /* CreateNewFeedViewController.swift */; };
+		340521F12491386200541358 /* CreateNewFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340521EF2491386200541358 /* CreateNewFeedViewController.xib */; };
 		3410946C248393FE00124038 /* MessageByOtherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3410946A248393FE00124038 /* MessageByOtherTableViewCell.swift */; };
 		3410946D248393FE00124038 /* MessageByOtherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3410946B248393FE00124038 /* MessageByOtherTableViewCell.xib */; };
 		3448D4462482B0DB00608688 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448D4442482B0DB00608688 /* ChatViewController.xib */; };
@@ -99,6 +101,8 @@
 		1729B6860833905D74BE7959 /* Pods-MyChat-MyChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyChat-MyChatUITests.debug.xcconfig"; path = "Target Support Files/Pods-MyChat-MyChatUITests/Pods-MyChat-MyChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		340521E9249126F400541358 /* NewFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedTableViewCell.swift; sourceTree = "<group>"; };
 		340521EA249126F400541358 /* NewFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewFeedTableViewCell.xib; sourceTree = "<group>"; };
+		340521EE2491386200541358 /* CreateNewFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewFeedViewController.swift; sourceTree = "<group>"; };
+		340521EF2491386200541358 /* CreateNewFeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateNewFeedViewController.xib; sourceTree = "<group>"; };
 		3410946A248393FE00124038 /* MessageByOtherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageByOtherTableViewCell.swift; sourceTree = "<group>"; };
 		3410946B248393FE00124038 /* MessageByOtherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageByOtherTableViewCell.xib; sourceTree = "<group>"; };
 		3448D4442482B0DB00608688 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
@@ -212,6 +216,15 @@
 				340521EA249126F400541358 /* NewFeedTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		340521ED2491374800541358 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				340521EE2491386200541358 /* CreateNewFeedViewController.swift */,
+				340521EF2491386200541358 /* CreateNewFeedViewController.xib */,
+			);
+			path = Popup;
 			sourceTree = "<group>";
 		};
 		340C35342483906F0045BED0 /* Cell */ = {
@@ -432,6 +445,7 @@
 		AB260E432490926F00C42F68 /* NewFeed */ = {
 			isa = PBXGroup;
 			children = (
+				340521ED2491374800541358 /* Popup */,
 				340521E8249126E200541358 /* Cell */,
 				AB260E442490928300C42F68 /* NewFeedViewController.swift */,
 				AB260E452490928300C42F68 /* NewFeedViewController.xib */,
@@ -673,6 +687,7 @@
 				AB260E472490928400C42F68 /* NewFeedViewController.xib in Resources */,
 				AB47D8DC247CD40600751CB1 /* GoogleService-Info.plist in Resources */,
 				3410946D248393FE00124038 /* MessageByOtherTableViewCell.xib in Resources */,
+				340521F12491386200541358 /* CreateNewFeedViewController.xib in Resources */,
 				ABF5597E247E434900D8C88A /* MainTabbar.storyboard in Resources */,
 				AB260E3D24907FD000C42F68 /* ListFriendViewController.xib in Resources */,
 				AB170C3A2480B2B200AECECC /* ProfileViewController.xib in Resources */,
@@ -818,6 +833,7 @@
 				AB048FE72477BF4100FE0832 /* RegisterViewController.swift in Sources */,
 				ABF55984247E4BEA00D8C88A /* ListChatViewController.swift in Sources */,
 				ABF55980247E456900D8C88A /* MainTabbarController.swift in Sources */,
+				340521F02491386200541358 /* CreateNewFeedViewController.swift in Sources */,
 				ABEF5F20248F2C870024492C /* ProfileDetailTableViewCell.swift in Sources */,
 				ABD4028B248E1DC3008ECFF8 /* StringExtension.swift in Sources */,
 				ABEF5F1B248F2B540024492C /* ProfileDetailViewController.swift in Sources */,

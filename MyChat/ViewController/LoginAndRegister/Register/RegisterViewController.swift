@@ -84,7 +84,7 @@ class RegisterViewController: UIViewController {
         let lastName = lastNameTxt.text ?? ""
         let userName = userNameTxt.text ?? ""
         let password = passwordTxt.text ?? ""
-        let email = emailTxt.text ?? ""
+        let email = emailTxt.text
         userModel = UserModel(firstName, lastName, userName, password, email, id: nil)
         if let userModel = self.userModel,
             let email = userModel.email,

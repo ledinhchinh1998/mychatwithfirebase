@@ -95,6 +95,9 @@
                             <state key="normal" title="What do you thinking?">
                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                             </state>
+                            <connections>
+                                <action selector="onclickCreateNewFeed:" destination="-1" eventType="touchUpInside" id="f1O-Zh-EIi"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
