@@ -39,6 +39,10 @@
 		AB170C3C2480BEA000AECECC /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB170C3B2480BEA000AECECC /* UILabelExtension.swift */; };
 		AB260E3C24907FD000C42F68 /* ListFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB260E3A24907FD000C42F68 /* ListFriendViewController.swift */; };
 		AB260E3D24907FD000C42F68 /* ListFriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB260E3B24907FD000C42F68 /* ListFriendViewController.xib */; };
+		AB260E412490807500C42F68 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB260E3F2490807500C42F68 /* FriendTableViewCell.swift */; };
+		AB260E422490807500C42F68 /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB260E402490807500C42F68 /* FriendTableViewCell.xib */; };
+		AB260E462490928400C42F68 /* NewFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB260E442490928300C42F68 /* NewFeedViewController.swift */; };
+		AB260E472490928400C42F68 /* NewFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB260E452490928300C42F68 /* NewFeedViewController.xib */; };
 		AB388241247B93D1007823CE /* RegistrationResultsPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB388240247B93D1007823CE /* RegistrationResultsPopup.xib */; };
 		AB388243247B93ED007823CE /* RegistrationResultsPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB388242247B93ED007823CE /* RegistrationResultsPopup.swift */; };
 		AB47D8DC247CD40600751CB1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB47D8DB247CD40600751CB1 /* GoogleService-Info.plist */; };
@@ -130,6 +134,10 @@
 		AB170C3B2480BEA000AECECC /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		AB260E3A24907FD000C42F68 /* ListFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFriendViewController.swift; sourceTree = "<group>"; };
 		AB260E3B24907FD000C42F68 /* ListFriendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListFriendViewController.xib; sourceTree = "<group>"; };
+		AB260E3F2490807500C42F68 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		AB260E402490807500C42F68 /* FriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
+		AB260E442490928300C42F68 /* NewFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedViewController.swift; sourceTree = "<group>"; };
+		AB260E452490928300C42F68 /* NewFeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewFeedViewController.xib; sourceTree = "<group>"; };
 		AB388240247B93D1007823CE /* RegistrationResultsPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationResultsPopup.xib; sourceTree = "<group>"; };
 		AB388242247B93ED007823CE /* RegistrationResultsPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationResultsPopup.swift; sourceTree = "<group>"; };
 		AB47D8DB247CD40600751CB1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -324,6 +332,7 @@
 		AB048FE12477BE0600FE0832 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AB260E432490926F00C42F68 /* NewFeed */,
 				AB260E3924907FA600C42F68 /* ListFriend */,
 				ABEF5F18248F2B1A0024492C /* ProfileDetail */,
 				3448D4422482B0C100608688 /* Chat */,
@@ -391,10 +400,29 @@
 		AB260E3924907FA600C42F68 /* ListFriend */ = {
 			isa = PBXGroup;
 			children = (
+				AB260E3E2490805C00C42F68 /* Cell */,
 				AB260E3A24907FD000C42F68 /* ListFriendViewController.swift */,
 				AB260E3B24907FD000C42F68 /* ListFriendViewController.xib */,
 			);
 			path = ListFriend;
+			sourceTree = "<group>";
+		};
+		AB260E3E2490805C00C42F68 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AB260E3F2490807500C42F68 /* FriendTableViewCell.swift */,
+				AB260E402490807500C42F68 /* FriendTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		AB260E432490926F00C42F68 /* NewFeed */ = {
+			isa = PBXGroup;
+			children = (
+				AB260E442490928300C42F68 /* NewFeedViewController.swift */,
+				AB260E452490928300C42F68 /* NewFeedViewController.xib */,
+			);
+			path = NewFeed;
 			sourceTree = "<group>";
 		};
 		AB38823F247B933B007823CE /* Popup */ = {
@@ -627,11 +655,13 @@
 				AB048FB72477B6A500FE0832 /* Assets.xcassets in Resources */,
 				3468EF93248D2B73002708DE /* MsgImgByOtherTableViewCell.xib in Resources */,
 				AB170BE6247F6A9C00AECECC /* LoginResultsPopup.xib in Resources */,
+				AB260E472490928400C42F68 /* NewFeedViewController.xib in Resources */,
 				AB47D8DC247CD40600751CB1 /* GoogleService-Info.plist in Resources */,
 				3410946D248393FE00124038 /* MessageByOtherTableViewCell.xib in Resources */,
 				ABF5597E247E434900D8C88A /* MainTabbar.storyboard in Resources */,
 				AB260E3D24907FD000C42F68 /* ListFriendViewController.xib in Resources */,
 				AB170C3A2480B2B200AECECC /* ProfileViewController.xib in Resources */,
+				AB260E422490807500C42F68 /* FriendTableViewCell.xib in Resources */,
 				3448D4462482B0DB00608688 /* ChatViewController.xib in Resources */,
 				AB388241247B93D1007823CE /* RegistrationResultsPopup.xib in Resources */,
 				AB048FB52477B6A200FE0832 /* Main.storyboard in Resources */,
@@ -784,8 +814,10 @@
 				AB170BE4247F6A8C00AECECC /* LoginResultsPopup.swift in Sources */,
 				AB47D8E5247CF0EB00751CB1 /* SplashViewController.swift in Sources */,
 				ABD40290248E36C9008ECFF8 /* Ultities.swift in Sources */,
+				AB260E462490928400C42F68 /* NewFeedViewController.swift in Sources */,
 				ABD4028D248E35C3008ECFF8 /* LastMessageModel.swift in Sources */,
 				AB170C3524801C5100AECECC /* UserModel.swift in Sources */,
+				AB260E412490807500C42F68 /* FriendTableViewCell.swift in Sources */,
 				AB170BE9247F6DB200AECECC /* Contains.swift in Sources */,
 				3468EF92248D2B73002708DE /* MsgImgByOtherTableViewCell.swift in Sources */,
 				AB170C3C2480BEA000AECECC /* UILabelExtension.swift in Sources */,

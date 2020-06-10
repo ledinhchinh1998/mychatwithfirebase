@@ -42,13 +42,12 @@ class ListChatViewController: UIViewController {
         configCollectionView()
         fetchMessage()
         fetchUser()
-        configNavigation()
         searchBar.delegate = self
 //        IQKeyboardManager.shared.enableAutoToolbar = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        configNavigation()
     }
     
     //MARK: Config
@@ -92,6 +91,8 @@ class ListChatViewController: UIViewController {
                     if child.key != self?.currentUser?.uid {
                         let user = UserModel(snapshot: child)
                         user?.id = child.key
+                        let value = ["id": child.key]
+                        Contains.users.child(child.key).updateChildValues(value)
                         if let user = user {
                             users.append(user)
                         }

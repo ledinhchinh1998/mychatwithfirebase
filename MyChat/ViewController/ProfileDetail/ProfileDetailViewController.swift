@@ -56,9 +56,12 @@ class ProfileDetailViewController: UIViewController {
         super.viewDidLoad()
         configTableVIew()
         configView()
-        configNavigation()
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        configNavigation()
     }
     
     //MARK: Config

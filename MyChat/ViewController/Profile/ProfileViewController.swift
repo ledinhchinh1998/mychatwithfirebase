@@ -44,6 +44,7 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         configProfile()
+        configNavigation()
     }
     
     //MARK: Config
@@ -75,6 +76,10 @@ class ProfileViewController: UIViewController {
                 SVProgressHUD.dismiss()
             }
         }
+    }
+    
+    private func configNavigation() {
+        navigationController?.isNavigationBarHidden = true
     }
     
     //MARK: Function

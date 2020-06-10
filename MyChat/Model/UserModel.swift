@@ -21,6 +21,7 @@ class UserModel: NSObject {
     var birthDay: String?
     var phoneNumber: String?
     var bio: String?
+    var status: String?
     
     init(_ firstName: String?,_ lastName: String?,_ userName: String?,_ password: String?,_ email: String?, id: String?) {
         self.firstName = firstName
@@ -45,6 +46,7 @@ class UserModel: NSObject {
             self.password = value["password"] as? String
             self.phoneNumber = value["phoneNumber"] as? String
             self.bio = value["bio"] as? String
+            self.status = value["status"] as? String
         }
     }
 }
