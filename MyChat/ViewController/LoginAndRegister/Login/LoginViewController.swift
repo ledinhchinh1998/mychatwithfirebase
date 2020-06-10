@@ -37,6 +37,7 @@ class LoginViewController: UIViewController {
     var loginResultsPopup = LoginResultsPopup()
     var delegate: Delegate?
     var saveUser: Bool = false
+    
     //MARK: Recycle ViewController
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,6 +126,8 @@ class LoginViewController: UIViewController {
                         Contains.statusUser.updateChildValues(value)
                     }
                     
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.fetchCurrentUser()
                     self.push(storyBoard: "MainTabbar", type: MainTabbarController.self) { (destinationVC) in
                         
                     }

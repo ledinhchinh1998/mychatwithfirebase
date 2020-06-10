@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="collectionView" destination="1E3-eY-c6b" id="rhg-Kn-4wR"/>
                 <outlet property="navigationBar" destination="v6J-Xs-GeI" id="dzD-rB-CD6"/>
+                <outlet property="searchBar" destination="HUd-5G-QUY" id="CbW-9M-eVO"/>
                 <outlet property="tableView" destination="nhh-tb-O0e" id="98L-Qr-FGH"/>
                 <outlet property="topAvtImg" destination="nOS-kN-ar5" id="gsY-k0-uJJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

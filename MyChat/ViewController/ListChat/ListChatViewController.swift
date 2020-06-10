@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import SVProgressHUD
 import SDWebImage
+import IQKeyboardManagerSwift
 
 class ListChatViewController: UIViewController {
     
@@ -18,6 +19,7 @@ class ListChatViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topAvtImg: UIImageView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     //MARK: Property
     lazy var currentUser: User? = {
@@ -41,6 +43,8 @@ class ListChatViewController: UIViewController {
         fetchMessage()
         fetchUser()
         configNavigation()
+        searchBar.delegate = self
+//        IQKeyboardManager.shared.enableAutoToolbar = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -193,5 +197,11 @@ extension ListChatViewController: UICollectionViewDelegate, UICollectionViewData
             destinationVC?.user = self.users[indexPath.row]
             
         }
+    }
+}
+
+extension ListChatViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
 }

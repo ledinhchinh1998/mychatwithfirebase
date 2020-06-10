@@ -15,6 +15,7 @@ enum TableViewCellType: Int, CaseIterable {
     
     var user: UserModel? {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.fetchCurrentUser()
         return appDelegate.currentUser ?? nil
     }
         
