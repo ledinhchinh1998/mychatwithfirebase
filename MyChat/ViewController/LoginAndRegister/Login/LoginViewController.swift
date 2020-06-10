@@ -126,8 +126,8 @@ class LoginViewController: UIViewController {
                         Contains.statusUser.updateChildValues(value)
                     }
                     
-                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                    appDelegate.fetchCurrentUser()
+//                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//                    appDelegate.fetchCurrentUser()
                     self.push(storyBoard: "MainTabbar", type: MainTabbarController.self) { (destinationVC) in
                         
                     }

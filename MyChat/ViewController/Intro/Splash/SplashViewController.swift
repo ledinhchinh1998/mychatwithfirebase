@@ -35,8 +35,8 @@ class SplashViewController: UIViewController {
         }) { (completion) in
             if let decoded = UserDefaults.standard.object(forKey: "User") as? Data {
                 do {
-                    let user = try NSKeyedUnarchiver.unarchiveObject(with: decoded) as! User
-                    Contains.users.child(user.uid).observe(.value) { (snapshot) in
+                    let user = try? NSKeyedUnarchiver.unarchiveObject(with: decoded) as? User
+                    Contains.users.child(user?.uid ?? "").observe(.value) { (snapshot) in
                         let currentUser = UserModel(snapshot: snapshot)
                         Auth.auth().signIn(withEmail: currentUser?.email ?? "", password: currentUser?.password ?? "") { (result, err) in
                             if err == nil {

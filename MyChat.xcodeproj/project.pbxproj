@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		340521EB249126F400541358 /* NewFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340521E9249126F400541358 /* NewFeedTableViewCell.swift */; };
+		340521EC249126F400541358 /* NewFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340521EA249126F400541358 /* NewFeedTableViewCell.xib */; };
 		3410946C248393FE00124038 /* MessageByOtherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3410946A248393FE00124038 /* MessageByOtherTableViewCell.swift */; };
 		3410946D248393FE00124038 /* MessageByOtherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3410946B248393FE00124038 /* MessageByOtherTableViewCell.xib */; };
 		3448D4462482B0DB00608688 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448D4442482B0DB00608688 /* ChatViewController.xib */; };
@@ -95,6 +97,8 @@
 /* Begin PBXFileReference section */
 		10C47AF2A5699D3AEBA210B0 /* Pods-MyChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyChatTests.debug.xcconfig"; path = "Target Support Files/Pods-MyChatTests/Pods-MyChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1729B6860833905D74BE7959 /* Pods-MyChat-MyChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyChat-MyChatUITests.debug.xcconfig"; path = "Target Support Files/Pods-MyChat-MyChatUITests/Pods-MyChat-MyChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		340521E9249126F400541358 /* NewFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeedTableViewCell.swift; sourceTree = "<group>"; };
+		340521EA249126F400541358 /* NewFeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewFeedTableViewCell.xib; sourceTree = "<group>"; };
 		3410946A248393FE00124038 /* MessageByOtherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageByOtherTableViewCell.swift; sourceTree = "<group>"; };
 		3410946B248393FE00124038 /* MessageByOtherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageByOtherTableViewCell.xib; sourceTree = "<group>"; };
 		3448D4442482B0DB00608688 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
@@ -201,6 +205,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		340521E8249126E200541358 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				340521E9249126F400541358 /* NewFeedTableViewCell.swift */,
+				340521EA249126F400541358 /* NewFeedTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		340C35342483906F0045BED0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +432,7 @@
 		AB260E432490926F00C42F68 /* NewFeed */ = {
 			isa = PBXGroup;
 			children = (
+				340521E8249126E200541358 /* Cell */,
 				AB260E442490928300C42F68 /* NewFeedViewController.swift */,
 				AB260E452490928300C42F68 /* NewFeedViewController.xib */,
 			);
@@ -652,6 +666,7 @@
 			files = (
 				AB048FBA2477B6A500FE0832 /* LaunchScreen.storyboard in Resources */,
 				ABF5598A247E4FC600D8C88A /* UserOnlineCollectionViewCell.xib in Resources */,
+				340521EC249126F400541358 /* NewFeedTableViewCell.xib in Resources */,
 				AB048FB72477B6A500FE0832 /* Assets.xcassets in Resources */,
 				3468EF93248D2B73002708DE /* MsgImgByOtherTableViewCell.xib in Resources */,
 				AB170BE6247F6A9C00AECECC /* LoginResultsPopup.xib in Resources */,
@@ -829,6 +844,7 @@
 				ABD40287248E0705008ECFF8 /* UIButtonExtension.swift in Sources */,
 				34F27148247C009100B6FF62 /* UITextFieldExtension.swift in Sources */,
 				AB048FE42477BE4800FE0832 /* LoginViewController.swift in Sources */,
+				340521EB249126F400541358 /* NewFeedTableViewCell.swift in Sources */,
 				AB048FB02477B6A200FE0832 /* SceneDelegate.swift in Sources */,
 				AB47D8E8247CF5F900751CB1 /* UIViewControllerExtension.swift in Sources */,
 				AB47D8E0247CD7B800751CB1 /* IntroViewController.swift in Sources */,
