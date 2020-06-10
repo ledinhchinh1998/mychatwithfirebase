@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,27 +17,21 @@
             </objects>
             <point key="canvasLocation" x="617" y="-665"/>
         </scene>
-        <!--New feed-->
+        <!--Chat-->
         <scene sceneID="fnn-h2-Qmy">
             <objects>
-                <viewController id="Xdj-fU-HjE" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2Nx-4K-SZx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="rcw-VH-lgU"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="New feed" id="itZ-bA-Nwm"/>
+                <viewController id="Xdj-fU-HjE" customClass="ListChatViewController" customModule="MyChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Chat" id="itZ-bA-Nwm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aei-Ei-Vel" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="616" y="532"/>
         </scene>
-        <!--Chat-->
+        <!--Newfeed-->
         <scene sceneID="2lN-Xs-hA3">
             <objects>
-                <viewController id="bLh-Cq-ff0" customClass="ListChatViewController" customModule="MyChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chat" image="ic-message" id="9ZT-JG-1v8">
+                <viewController id="bLh-Cq-ff0" customClass="NewFeedViewController" customModule="MyChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Newfeed" image="ic-message" id="9ZT-JG-1v8">
                         <color key="badgeColor" red="0.96130555870000001" green="0.76114847699999999" blue="0.7974713604" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBarItem>
                 </viewController>

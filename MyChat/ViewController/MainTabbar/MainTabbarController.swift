@@ -14,7 +14,7 @@ class MainTabbarController: UITabBarController {
     //MARK: Property
     var user: User?
     
-    let arrImg = [UIImage(named: "ic-message"), UIImage(named: "newspaper"), UIImage(named: "ic-friends"), UIImage(named: "ic-profile")]
+    let arrImg = [UIImage(named: "newspaper"), UIImage(named: "ic-message"), UIImage(named: "ic-friends"), UIImage(named: "ic-profile")]
     override func viewDidLoad() {
         super.viewDidLoad()
         if let count = self.tabBar.items?.count {
